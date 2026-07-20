@@ -50,10 +50,15 @@
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
+        .top-bar-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .top-bar a {
             color: var(--text-light);
             text-decoration: none;
-            margin-left: 1rem;
             transition: color 0.3s ease;
         }
 
@@ -493,17 +498,39 @@
 
         .contact-info {
             margin-top: 2.5rem;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.5rem;
             border-top: 1px solid var(--border);
             padding-top: 2rem;
+            text-align: center;
         }
 
         .contact-item h4 {
             color: var(--primary);
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .linkedin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #0a66c2;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .linkedin-link:hover {
+            color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .linkedin-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            vertical-align: middle;
         }
 
         /* Cookie Notice Banner */
@@ -556,8 +583,15 @@
     <!-- Top Info Bar -->
     <div class="top-bar">
         <div><span>📍 Lucknow, India</span> | <span>📞 +91.9810844079</span></div>
-        <div>
+        <div class="top-bar-links">
             <a href="https://wa.me/919810844079" target="_blank">Message us on WhatsApp</a>
+            <span>|</span>
+            <a href="https://www.linkedin.com/company/adityaconsulting" target="_blank" style="display: inline-flex; align-items: center; gap: 4px;">
+                <svg class="linkedin-icon" style="width: 14px; height: 14px; fill: #ffffff;" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+                LinkedIn
+            </a>
         </div>
     </div>
 
@@ -944,7 +978,7 @@
 
     <!-- Contact & Call To Action -->
     <section id="contact">
-        <div class="contact-box style="text-align: center;">
+        <div class="contact-box" style="text-align: center;">
             <div class="section-title" style="margin-bottom: 2rem;">
                 <h2>Build Your Leadership Team With Confidence</h2>
                 <p>Connect with your executive search partners today to discuss your leadership requirements.</p>
@@ -955,15 +989,26 @@
             </div>
 
             <div class="contact-info">
-                <div class="contact-item" style="text-align: center;">
+                <div class="contact-item">
                     <h4>Location</h4>
                     <p style="color: var(--text-muted);">Lucknow, India</p>
                 </div>
-                <div class="contact-item" style="text-align: center;">
+                <div class="contact-item">
                     <h4>Direct Call</h4>
                     <p style="color: var(--text-muted);">+91.9810844079</p>
                 </div>
-                <div class="contact-item" style="text-align: center;">
+                <div class="contact-item">
+                    <h4>LinkedIn</h4>
+                    <p>
+                        <a href="https://www.linkedin.com/company/adityaconsulting" target="_blank" class="linkedin-link">
+                            <svg class="linkedin-icon" viewBox="0 0 24 24">
+                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                            </svg>
+                            Aditya Consulting
+                        </a>
+                    </p>
+                </div>
+                <div class="contact-item">
                     <h4>Business Hours</h4>
                     <p style="color: var(--text-muted);">Mon – Fri: 09:00 am – 06:00 pm</p>
                 </div>
