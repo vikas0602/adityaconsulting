@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aditya Consulting - Executive Search & Leadership Advisory. Scaling Global Teams Across India, Europe & APAC. We place top talent.">
+    <title>Aditya Consulting - Executive Search & Leadership Advisory</title>
+    <style>
+        :root {
+            --primary: #0a192f;
+            --primary-light: #172a45;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --text-light: #f8fafc;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary);
+            color: #94a3b8;
+            font-size: 0.85rem;
+            padding: 0.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+
+        /* Header / Navbar */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+            font-size: 0.9rem;
+            display: block;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+
+        nav a {
+            margin-left: 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.92), rgba(23, 42, 69, 0.88)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: white;
+            padding: 6rem 5% 7rem;
+            text-align: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            color: #60a5fa;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.85rem 2.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #94a3b8;
+            color: white;
+            margin-left: 1rem;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-color: white;
+        }
+
+        /* Common Section Layouts */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3.5rem auto;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Grid Utilities */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+        @media (max-width: 992px) {
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            header { flex-direction: column; gap: 1rem; }
+            nav a { margin: 0 0.5rem; }
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* By the Numbers */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: var(--primary);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+        }
+
+        .styled-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .styled-list li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Tags / Badges */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: var(--card-shadow);
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .contact-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        /* Cookie Notice Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            z-index: 2000;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cookie-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #060d18;
+            color: #94a3b8;
+            padding: 3rem 5% 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div><span>📍 Lucknow, India</span> | <span>📞 +91.9810844079</span></div>
+        <div>
+            <a href="https://wa.me/919810844079" target="_blank">Message us on WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo">
+            Aditya Consulting
+            <span>Executive Search & Leadership Advisory</span>
+        </div>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#industries">Industries</a>
+            <a href="#process">Process</a>
+            <a href="#intelligence">Intelligence</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="hero-tag">Scaling Global Teams Across India, Europe & APAC</span>
+        <h1>Executive Search & Leadership Advisory</h1>
+        <p>Identifying leaders who transform businesses, accelerate growth, and create lasting impact.</p>
+        <a href="#contact" class="btn">Connect With Us</a>
+        <a href="#solutions" class="btn btn-outline">Our Solutions</a>
+    </section>
+
+    <!-- About Us -->
+    <section id="about">
+        <div class="section-title">
+            <h2>Trusted Advisors in Executive Search</h2>
+            <p>At Aditya Consulting, we specialize in executive search for organizations seeking transformational leaders.</p>
+        </div>
+        <div style="max-width: 850px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #475569;">
+            <p style="margin-bottom: 1.5rem;">Our approach combines market intelligence, industry expertise, and confidential headhunting to identify executives who align with your business strategy and culture.</p>
+            <p>From emerging startups to established enterprises, we help organizations build leadership teams capable of driving innovation, operational excellence, and sustainable growth.</p>
+        </div>
+    </section>
+
+    <!-- Why Aditya Consulting -->
+    <section id="why-us" class="bg-light">
+        <div class="section-title">
+            <h2>Why Leading Organizations Partner With Us</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Partner-Led Search</h3>
+                <p>Direct involvement of experienced senior leadership partners on every single search engagement.</p>
+            </div>
+            <div class="card">
+                <h3>Confidential & Discreet</h3>
+                <p>Sensitive executive placements and headhunting managed with absolute discretion and strict confidentiality.</p>
+            </div>
+            <div class="card">
+                <h3>Passive Talent Access</h3>
+                <p>Proactive access to high-performing, non-active executive candidates beyond traditional job boards.</p>
+            </div>
+            <div class="card">
+                <h3>Tech & Digital Focus</h3>
+                <p>Specialized domain capabilities in Technology, Digital Transformation, AI, and Software Engineering.</p>
+            </div>
+            <div class="card">
+                <h3>Global Network</h3>
+                <p>Extensive cross-industry executive ecosystem spanning India, Europe, and the APAC region.</p>
+            </div>
+            <div class="card">
+                <h3>Research-Driven</h3>
+                <p>In-depth competitor analysis, talent mapping, and customized search strategies for optimal fit.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- By The Numbers -->
+    <section>
+        <div class="section-title">
+            <h2>By the Numbers</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="number">20+</div>
+                <div class="label">Years of Executive Search Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">Multi</div>
+                <div class="label">Industry Leadership Search Capability</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">Specialist</div>
+                <div class="label">Technology & Digital Leadership Focus</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">100%</div>
+                <div class="label">Confidential Search Engagements</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Search Solutions -->
+    <section id="solutions" class="bg-light">
+        <div class="section-title">
+            <h2>Executive Search Solutions</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Executive Search</h3>
+                <p>Confidential search assignments for C-suite, VP, Director, and senior leadership positions across critical functional areas.</p>
+            </div>
+            <div class="card">
+                <h3>Leadership Search</h3>
+                <p>Building leadership capability across Technology, Product, Sales, Marketing, Finance, Operations, HR, and Legal functions.</p>
+            </div>
+            <div class="card">
+                <h3>Board & Advisory Search</h3>
+                <p>Identifying Independent Directors, Board Members, and Strategic Advisors who strengthen governance and long-term business performance.</p>
+            </div>
+            <div class="card">
+                <h3>Succession Planning</h3>
+                <p>Helping organizations develop robust leadership pipelines for future growth, continuity, and risk mitigation.</p>
+            </div>
+            <div class="card">
+                <h3>Market Mapping & Intelligence</h3>
+                <p>Providing competitive insights, executive benchmarking, and talent mapping to enable well-informed strategic hiring decisions.</p>
+            </div>
+            <div class="card">
+                <h3>Tailored Engagement</h3>
+                <p>Flexible, long-term leadership advisory partnerships designed to adapt to your evolving business roadmap.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Search Expertise -->
+    <section id="expertise">
+        <div class="section-title">
+            <h2>Executive Search Expertise</h2>
+            <p>Functional domains where we routinely place high-impact executives.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Technology Leadership</h3>
+                <div class="badge-container">
+                    <span class="badge">CTO</span>
+                    <span class="badge">CIO</span>
+                    <span class="badge">VP Engineering</span>
+                    <span class="badge">Engineering Director</span>
+                    <span class="badge">Head of AI</span>
+                    <span class="badge">Head of Data</span>
+                    <span class="badge">Head of Cybersecurity</span>
+                    <span class="badge">Enterprise Architects</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Product & Digital</h3>
+                <div class="badge-container">
+                    <span class="badge">Chief Product Officer</span>
+                    <span class="badge">VP Product</span>
+                    <span class="badge">Product Directors</span>
+                    <span class="badge">UX Leadership</span>
+                    <span class="badge">Digital Transformation Leaders</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Commercial Leadership</h3>
+                <div class="badge-container">
+                    <span class="badge">Chief Revenue Officer</span>
+                    <span class="badge">VP Sales</span>
+                    <span class="badge">Sales Directors</span>
+                    <span class="badge">Marketing Leaders</span>
+                    <span class="badge">Customer Success Heads</span>
+                    <span class="badge">Partnerships</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Corporate Leadership</h3>
+                <div class="badge-container">
+                    <span class="badge">CEO</span>
+                    <span class="badge">COO</span>
+                    <span class="badge">CFO</span>
+                    <span class="badge">CHRO</span>
+                    <span class="badge">General Counsel</span>
+                    <span class="badge">Business Unit Heads</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Operations & Industrial</h3>
+                <div class="badge-container">
+                    <span class="badge">Plant Directors</span>
+                    <span class="badge">Operations Heads</span>
+                    <span class="badge">Supply Chain Leaders</span>
+                    <span class="badge">Procurement Heads</span>
+                    <span class="badge">Quality Leaders</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Recent Mandates</h3>
+                <ul class="styled-list">
+                    <li>CTO – AI Platform</li>
+                    <li>VP Engineering – GCC</li>
+                    <li>CFO – Manufacturing Group</li>
+                    <li>Head of Product – FinTech</li>
+                    <li>CRO – SaaS Company</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section id="industries" class="bg-light">
+        <div class="section-title">
+            <h2>Industries We Serve</h2>
+            <p>Delivering leadership solutions where talent drives primary competitive advantage.</p>
+        </div>
+        <div class="grid-4">
+            <div class="card">
+                <h3>Technology & SaaS</h3>
+                <p>B2B/B2C SaaS, Cloud Platforms, Enterprise Software, and Infrastructure.</p>
+            </div>
+            <div class="card">
+                <h3>AI & Data</h3>
+                <p>Generative AI, Machine Learning, Advanced Analytics, and Data Platforms.</p>
+            </div>
+            <div class="card">
+                <h3>GCCs</h3>
+                <p>Global Capability Centers establishing and scaling multi-functional centers in India.</p>
+            </div>
+            <div class="card">
+                <h3>FinTech & Financials</h3>
+                <p>Banking, Digital Payments, WealthTech, InsurTech, and Financial Institutions.</p>
+            </div>
+            <div class="card">
+                <h3>Manufacturing</h3>
+                <p>Industrial Automation, Automotive, Precision Engineering, and Advanced Manufacturing.</p>
+            </div>
+            <div class="card">
+                <h3>Healthcare & Life Sciences</h3>
+                <p>Pharma, HealthTech, Medical Devices, and Biotech Organizations.</p>
+            </div>
+            <div class="card">
+                <h3>Consumer & Retail</h3>
+                <p>E-commerce, D2C Brands, Consumer Goods, and Digital Media.</p>
+            </div>
+            <div class="card">
+                <h3>PE & Startups</h3>
+                <p>Private Equity Portfolio firms and VC-funded High-Growth Startups.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Executive Search Process -->
+    <section id="process">
+        <div class="section-title">
+            <h2>Our Executive Search Process</h2>
+            <p>A rigorous, multi-stage methodology designed to ensure flawless execution.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>1. Discover</h3>
+                <p>In-depth consultation to clarify business objectives, culture, strategy, and executive success criteria.</p>
+            </div>
+            <div class="card">
+                <h3>2. Research</h3>
+                <p>Comprehensive market mapping, competitor evaluation, and strategic identification of leadership profiles.</p>
+            </div>
+            <div class="card">
+                <h3>3. Engage</h3>
+                <p>Discreet, confidential outreach to targeted passive and active leadership talent across global networks.</p>
+            </div>
+            <div class="card">
+                <h3>4. Assess</h3>
+                <p>Structured competency interviews, behavioral assessments, soft-skills evaluation, and discreet reference verification.</p>
+            </div>
+            <div class="card">
+                <h3>5. Present</h3>
+                <p>A curated shortlist of fully vetted, high-fit executive candidates accompanied by detailed comparative reports.</p>
+            </div>
+            <div class="card">
+                <h3>6. Secure</h3>
+                <p>Offer strategy, executive negotiation management, seamless onboarding support, and post-placement integration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Intelligence -->
+    <section id="intelligence" class="bg-light">
+        <div class="section-title">
+            <h2>Leadership Intelligence</h2>
+            <p>Research-driven insights that power strategic leadership decisions.</p>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Talent Mapping</h3>
+                <p>Identify and map high-performing executives across target competitors, industries, and emerging sectors before the talent acquisition need becomes critical.</p>
+            </div>
+            <div class="card">
+                <h3>Leadership Benchmarking</h3>
+                <p>Evaluate your internal and external leadership standards against broader industry benchmarks to define ideal competency profiles.</p>
+            </div>
+            <div class="card">
+                <h3>Competitive Intelligence</h3>
+                <p>Gain valuable strategic clarity on organizational structures, talent availability, executive movements, and prevailing compensation trends.</p>
+            </div>
+            <div class="card">
+                <h3>Strategic Succession</h3>
+                <p>Ensure uninterrupted business continuity by identifying and preparing internal and external candidates for future critical roles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Call To Action -->
+    <section id="contact">
+        <div class="contact-box text-center">
+            <div class="section-title" style="margin-bottom: 2rem;">
+                <h2>Build Your Leadership Team With Confidence</h2>
+                <p>Connect with your executive search partners today to discuss your leadership requirements.</p>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="https://wa.me/919810844079" class="btn" target="_blank">Message Us on WhatsApp</a>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>Location</h4>
+                    <p>Lucknow, India</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Direct Call</h4>
+                    <p>+91.9810844079</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Business Hours</h4>
+                    <p>Mon – Fri: 09:00 am – 06:00 pm</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Aditya Consulting</strong> - Executive Search & Leadership Advisory</p>
+        <p>Copyright &copy; 2026 Aditya Consulting. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <span>We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data.</span>
+        <button class="cookie-btn" onclick="document.getElementById('cookieBanner').style.display='none'">Accept</button>
+    </div>
+
+</body>
+</html>
