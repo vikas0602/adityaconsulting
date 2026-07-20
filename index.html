@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Aditya Consulting - Executive Search & Leadership Advisory. Scaling Global Teams Across India, Europe & APAC. We place top talent.">
@@ -12,12 +11,16 @@
             --primary-light: #172a45;
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
+            --accent-glow: rgba(37, 99, 235, 0.25);
+            --text-dark: #0f172a;
+            --text-muted: #475569;
             --text-light: #f8fafc;
             --bg-light: #f8fafc;
             --border: #e2e8f0;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            --hover-shadow: 0 20px 40px -10px rgba(10, 25, 47, 0.15);
         }
 
         * {
@@ -40,10 +43,11 @@
             background-color: var(--primary);
             color: #94a3b8;
             font-size: 0.85rem;
-            padding: 0.5rem 5%;
+            padding: 0.6rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .top-bar a {
@@ -59,46 +63,81 @@
 
         /* Header / Navbar */
         header {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
-            padding: 1.25rem 5%;
+            padding: 1rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+
+        /* Placeholder Logo Graphic */
+        .logo-box {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px var(--accent-glow);
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.35rem;
+            font-weight: 800;
             color: var(--primary);
             letter-spacing: -0.5px;
-            transition: transform 0.3s ease;
-            cursor: pointer;
+            line-height: 1.1;
         }
 
-        .logo:hover {
-            transform: scale(1.03);
-        }
-
-        .logo span {
+        .logo-subtitle {
             color: var(--accent);
-            font-size: 0.9rem;
-            display: block;
-            font-weight: 400;
-            letter-spacing: 0;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
         }
 
         nav a {
-            margin-left: 1.5rem;
             text-decoration: none;
             color: var(--text-dark);
-            font-weight: 500;
-            font-size: 0.95rem;
+            font-weight: 600;
+            font-size: 0.92rem;
             position: relative;
+            padding: 0.25rem 0;
             transition: color 0.3s ease;
         }
 
@@ -107,7 +146,7 @@
             position: absolute;
             width: 0%;
             height: 2px;
-            bottom: -4px;
+            bottom: -2px;
             left: 0;
             background-color: var(--accent);
             transition: width 0.3s ease;
@@ -121,87 +160,67 @@
             width: 100%;
         }
 
-        /* Keyframes for Title Animations */
+        /* Animations */
         @keyframes flyFromLeft {
-            0% {
-                opacity: 0;
-                transform: translateX(-150px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            0% { opacity: 0; transform: translateX(-120px); }
+            100% { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes zoomOutEntrance {
-            0% {
-                opacity: 0;
-                transform: scale(1.4);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(1.3); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(10, 25, 47, 0.92), rgba(23, 42, 69, 0.88)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
             color: white;
-            padding: 6rem 5% 7rem;
+            padding: 7rem 6% 8rem;
             text-align: center;
             overflow: hidden;
         }
 
         .hero-tag {
             display: inline-block;
-            background: rgba(37, 99, 235, 0.2);
-            border: 1px solid rgba(37, 99, 235, 0.4);
-            color: #60a5fa;
-            padding: 0.4rem 1.2rem;
+            background: rgba(37, 99, 235, 0.25);
+            border: 1px solid rgba(96, 165, 250, 0.4);
+            color: #93c5fd;
+            padding: 0.45rem 1.4rem;
             border-radius: 50px;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
             animation: zoomOutEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.25rem;
             font-weight: 800;
-            margin-bottom: 1.2rem;
-            line-height: 1.2;
-            /* Title fly from left animation */
+            margin-bottom: 1.25rem;
+            line-height: 1.15;
+            letter-spacing: -1px;
             animation: flyFromLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             display: inline-block;
             transition: transform 0.4s ease, color 0.4s ease;
         }
 
-        /* Hovering zoom effect on Title */
         .hero h1:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             color: #60a5fa;
             cursor: pointer;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2.5rem auto;
+            font-size: 1.25rem;
+            max-width: 820px;
+            margin: 0 auto 2.75rem auto;
             color: #cbd5e1;
-            /* Subtitle zoom out entrance */
             animation: zoomOutEntrance 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
             opacity: 0;
         }
@@ -211,44 +230,42 @@
             opacity: 0;
         }
 
-        /* Buttons with Smooth Hover Animation */
+        /* Buttons */
         .btn {
             display: inline-block;
             background: var(--accent);
             color: white;
-            padding: 0.85rem 2.25rem;
-            border-radius: 6px;
+            padding: 0.9rem 2.4rem;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 4px 16px var(--accent-glow);
         }
 
         .btn:hover {
             background: var(--accent-hover);
-            transform: scale(1.06) translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
         }
 
         .btn-outline {
-            background: transparent;
-            border: 1px solid #94a3b8;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
             margin-left: 1rem;
             box-shadow: none;
         }
 
         .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
+            background: rgba(255, 255, 255, 0.2);
             border-color: white;
-            transform: scale(1.06) translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+            transform: scale(1.05) translateY(-3px);
         }
 
-        /* Common Section Layouts */
+        /* Section Layouts */
         section {
-            padding: 5rem 5%;
+            padding: 6rem 6%;
         }
 
         .bg-light {
@@ -258,21 +275,20 @@
         .section-title {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 3.5rem auto;
+            margin: 0 auto 4rem auto;
         }
 
         .section-title h2 {
-            font-size: 2.25rem;
+            font-size: 2.4rem;
             color: var(--primary);
             margin-bottom: 0.75rem;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.8px;
             display: inline-block;
             transition: transform 0.35s ease, color 0.35s ease;
         }
 
-        /* Hover Zoom on Section Titles */
         .section-title h2:hover {
-            transform: scale(1.08);
+            transform: scale(1.04);
             color: var(--accent);
             cursor: pointer;
         }
@@ -282,36 +298,59 @@
             font-size: 1.1rem;
         }
 
-        /* Grid Utilities */
+        /* Grids */
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
         .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem; }
 
         @media (max-width: 992px) {
-            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3, .grid-4, .split-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 2.5rem; }
         }
         @media (max-width: 640px) {
-            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
+            .grid-2, .grid-3, .grid-4, .split-grid { grid-template-columns: 1fr; }
             header { flex-direction: column; gap: 1rem; }
-            nav a { margin: 0 0.5rem; }
+            nav { flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
             .btn-outline { margin-left: 0; margin-top: 1rem; }
         }
 
-        /* Cards with Enhanced Zoom & Float Hover Effects */
+        /* Dynamic Image Cards */
         .card {
             background: white;
             border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 8px;
+            padding: 2.25rem 2rem;
+            border-radius: var(--radius-lg);
             box-shadow: var(--card-shadow);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
-            transform: scale(1.05) translateY(-8px);
-            box-shadow: 0 15px 35px rgba(10, 25, 47, 0.12);
+            transform: scale(1.04) translateY(-8px);
+            box-shadow: var(--hover-shadow);
             border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            height: 180px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.08);
         }
 
         .card h3 {
@@ -330,11 +369,25 @@
             font-size: 0.95rem;
         }
 
-        /* By the Numbers */
+        .img-card {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--card-shadow);
+            transition: transform 0.4s ease;
+        }
+
+        .img-card:hover {
+            transform: scale(1.03);
+            box-shadow: var(--hover-shadow);
+        }
+
+        /* Stats Section */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            gap: 1.75rem;
             text-align: center;
         }
 
@@ -342,13 +395,13 @@
             background: var(--primary);
             color: white;
             padding: 2.5rem 1.5rem;
-            border-radius: 8px;
+            border-radius: var(--radius-lg);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
 
         .stat-card:hover {
-            transform: scale(1.08) translateY(-6px);
-            box-shadow: 0 12px 30px rgba(10, 25, 47, 0.3);
+            transform: scale(1.06) translateY(-6px);
+            box-shadow: 0 15px 35px rgba(10, 25, 47, 0.35);
         }
 
         .stat-card .number {
@@ -360,7 +413,7 @@
         }
 
         .stat-card:hover .number {
-            transform: scale(1.15);
+            transform: scale(1.1);
         }
 
         .stat-card .label {
@@ -369,10 +422,7 @@
         }
 
         /* Lists */
-        .styled-list {
-            list-style: none;
-        }
-
+        .styled-list { list-style: none; }
         .styled-list li {
             padding: 0.5rem 0;
             position: relative;
@@ -380,11 +430,7 @@
             color: var(--text-dark);
             transition: transform 0.2s ease;
         }
-
-        .styled-list li:hover {
-            transform: translateX(6px);
-        }
-
+        .styled-list li:hover { transform: translateX(6px); }
         .styled-list li::before {
             content: "✓";
             color: var(--accent);
@@ -393,62 +439,66 @@
             left: 0;
         }
 
-        /* Tags / Badges with Hover Scale */
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
+        /* Badges */
+        .badge-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
         .badge {
-            background: #e0e7ff;
-            color: #3730a3;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
+            background: #eff6ff;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
             font-size: 0.85rem;
-            font-weight: 500;
-            transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+            font-weight: 600;
+            transition: all 0.25s ease;
         }
-
         .badge:hover {
-            transform: scale(1.12);
+            transform: scale(1.08);
             background-color: var(--accent);
             color: white;
+            border-color: var(--accent);
             cursor: pointer;
         }
 
-        /* Contact Section */
+        /* Process Steps */
+        .process-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Contact Box */
         .contact-box {
             background: white;
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 3rem;
-            max-width: 900px;
+            border-radius: var(--radius-lg);
+            padding: 3.5rem;
+            max-width: 950px;
             margin: 0 auto;
             box-shadow: var(--card-shadow);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         .contact-box:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: scale(1.01);
+            box-shadow: var(--hover-shadow);
         }
 
         .contact-info {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             gap: 1.5rem;
-        }
-
-        .contact-item {
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: scale(1.08);
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
         }
 
         .contact-item h4 {
@@ -464,7 +514,7 @@
             right: 0;
             background: var(--primary);
             color: white;
-            padding: 1rem 5%;
+            padding: 1rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -477,15 +527,15 @@
             background: var(--accent);
             color: white;
             border: none;
-            padding: 0.5rem 1.25rem;
-            border-radius: 4px;
+            padding: 0.55rem 1.4rem;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
             transition: transform 0.25s ease, background 0.25s ease;
         }
 
         .cookie-btn:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
             background: var(--accent-hover);
         }
 
@@ -493,14 +543,12 @@
         footer {
             background: #060d18;
             color: #94a3b8;
-            padding: 3rem 5% 2rem;
+            padding: 4rem 6% 2rem;
             text-align: center;
             font-size: 0.9rem;
         }
 
-        footer p {
-            margin-bottom: 0.5rem;
-        }
+        footer p { margin-bottom: 0.5rem; }
     </style>
 </head>
 <body>
@@ -513,12 +561,15 @@
         </div>
     </div>
 
-    <!-- Header / Navigation -->
+    <!-- Header Navigation with UI-Enhanced Logo -->
     <header>
-        <div class="logo">
-            Aditya Consulting
-            <span>Executive Search & Leadership Advisory</span>
-        </div>
+        <a href="#" class="logo-container">
+            <div class="logo-box">AC</div>
+            <div class="logo-text">
+                <span class="logo-title">Aditya Consulting</span>
+                <span class="logo-subtitle">Executive Search & Leadership Advisory</span>
+            </div>
+        </a>
         <nav>
             <a href="#about">About Us</a>
             <a href="#why-us">Why Us</a>
@@ -542,15 +593,26 @@
         </div>
     </section>
 
-    <!-- About Us -->
+    <!-- About Us Split Section -->
     <section id="about">
-        <div class="section-title">
-            <h2>Trusted Advisors in Executive Search</h2>
-            <p>At Aditya Consulting, we specialize in executive search for organizations seeking transformational leaders.</p>
-        </div>
-        <div style="max-width: 850px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #475569;">
-            <p style="margin-bottom: 1.5rem;">Our approach combines market intelligence, industry expertise, and confidential headhunting to identify executives who align with your business strategy and culture.</p>
-            <p>From emerging startups to established enterprises, we help organizations build leadership teams capable of driving innovation, operational excellence, and sustainable growth.</p>
+        <div class="split-grid">
+            <div>
+                <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
+                    <h2>Trusted Advisors in Executive Search</h2>
+                </div>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    At Aditya Consulting, we specialize in executive search for organizations seeking transformational leaders.
+                </p>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Our approach combines market intelligence, industry expertise, and confidential headhunting to identify executives who align with your business strategy and culture.
+                </p>
+                <p style="color: var(--text-muted);">
+                    From emerging startups to established enterprises, we help organizations build leadership teams capable of driving innovation, operational excellence, and sustainable growth.
+                </p>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Executive Leadership Meeting" class="img-card">
+            </div>
         </div>
     </section>
 
@@ -558,6 +620,7 @@
     <section id="why-us" class="bg-light">
         <div class="section-title">
             <h2>Why Leading Organizations Partner With Us</h2>
+            <p>Our commitment to precision, speed, and discretion sets us apart.</p>
         </div>
         <div class="grid-3">
             <div class="card">
@@ -591,6 +654,7 @@
     <section>
         <div class="section-title">
             <h2>By the Numbers</h2>
+            <p>Delivering reliable, high-impact results across critical assignments.</p>
         </div>
         <div class="stats-grid">
             <div class="stat-card">
@@ -612,33 +676,52 @@
         </div>
     </section>
 
-    <!-- Executive Search Solutions -->
+    <!-- Executive Search Solutions with Visual Cards -->
     <section id="solutions" class="bg-light">
         <div class="section-title">
             <h2>Executive Search Solutions</h2>
+            <p>Customized leadership acquisition programs designed for enterprise growth.</p>
         </div>
         <div class="grid-3">
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Executive Search" class="card-img">
+                </div>
                 <h3>Executive Search</h3>
                 <p>Confidential search assignments for C-suite, VP, Director, and senior leadership positions across critical functional areas.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Leadership Search" class="card-img">
+                </div>
                 <h3>Leadership Search</h3>
                 <p>Building leadership capability across Technology, Product, Sales, Marketing, Finance, Operations, HR, and Legal functions.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Board & Advisory" class="card-img">
+                </div>
                 <h3>Board & Advisory Search</h3>
                 <p>Identifying Independent Directors, Board Members, and Strategic Advisors who strengthen governance and long-term business performance.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Succession Planning" class="card-img">
+                </div>
                 <h3>Succession Planning</h3>
                 <p>Helping organizations develop robust leadership pipelines for future growth, continuity, and risk mitigation.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Market Mapping" class="card-img">
+                </div>
                 <h3>Market Mapping & Intelligence</h3>
                 <p>Providing competitive insights, executive benchmarking, and talent mapping to enable well-informed strategic hiring decisions.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80" alt="Tailored Engagement" class="card-img">
+                </div>
                 <h3>Tailored Engagement</h3>
                 <p>Flexible, long-term leadership advisory partnerships designed to adapt to your evolving business roadmap.</p>
             </div>
@@ -720,7 +803,7 @@
         </div>
     </section>
 
-    <!-- Industries We Serve -->
+    <!-- Industries We Serve with Visual Cards -->
     <section id="industries" class="bg-light">
         <div class="section-title">
             <h2>Industries We Serve</h2>
@@ -728,41 +811,65 @@
         </div>
         <div class="grid-4">
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Tech & SaaS" class="card-img">
+                </div>
                 <h3>Technology & SaaS</h3>
                 <p>B2B/B2C SaaS, Cloud Platforms, Enterprise Software, and Infrastructure.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="AI & Data" class="card-img">
+                </div>
                 <h3>AI & Data</h3>
                 <p>Generative AI, Machine Learning, Advanced Analytics, and Data Platforms.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="GCCs" class="card-img">
+                </div>
                 <h3>GCCs</h3>
                 <p>Global Capability Centers establishing and scaling multi-functional centers in India.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80" alt="FinTech" class="card-img">
+                </div>
                 <h3>FinTech & Financials</h3>
                 <p>Banking, Digital Payments, WealthTech, InsurTech, and Financial Institutions.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Manufacturing" class="card-img">
+                </div>
                 <h3>Manufacturing</h3>
                 <p>Industrial Automation, Automotive, Precision Engineering, and Advanced Manufacturing.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Healthcare" class="card-img">
+                </div>
                 <h3>Healthcare & Life Sciences</h3>
                 <p>Pharma, HealthTech, Medical Devices, and Biotech Organizations.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Retail" class="card-img">
+                </div>
                 <h3>Consumer & Retail</h3>
                 <p>E-commerce, D2C Brands, Consumer Goods, and Digital Media.</p>
             </div>
             <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Private Equity" class="card-img">
+                </div>
                 <h3>PE & Startups</h3>
                 <p>Private Equity Portfolio firms and VC-funded High-Growth Startups.</p>
             </div>
         </div>
     </section>
 
-    <!-- Our Executive Search Process -->
+    <!-- Executive Search Process -->
     <section id="process">
         <div class="section-title">
             <h2>Our Executive Search Process</h2>
@@ -770,61 +877,74 @@
         </div>
         <div class="grid-3">
             <div class="card">
-                <h3>1. Discover</h3>
+                <div class="process-number">01</div>
+                <h3>Discover</h3>
                 <p>In-depth consultation to clarify business objectives, culture, strategy, and executive success criteria.</p>
             </div>
             <div class="card">
-                <h3>2. Research</h3>
+                <div class="process-number">02</div>
+                <h3>Research</h3>
                 <p>Comprehensive market mapping, competitor evaluation, and strategic identification of leadership profiles.</p>
             </div>
             <div class="card">
-                <h3>3. Engage</h3>
+                <div class="process-number">03</div>
+                <h3>Engage</h3>
                 <p>Discreet, confidential outreach to targeted passive and active leadership talent across global networks.</p>
             </div>
             <div class="card">
-                <h3>4. Assess</h3>
+                <div class="process-number">04</div>
+                <h3>Assess</h3>
                 <p>Structured competency interviews, behavioral assessments, soft-skills evaluation, and discreet reference verification.</p>
             </div>
             <div class="card">
-                <h3>5. Present</h3>
+                <div class="process-number">05</div>
+                <h3>Present</h3>
                 <p>A curated shortlist of fully vetted, high-fit executive candidates accompanied by detailed comparative reports.</p>
             </div>
             <div class="card">
-                <h3>6. Secure</h3>
+                <div class="process-number">06</div>
+                <h3>Secure</h3>
                 <p>Offer strategy, executive negotiation management, seamless onboarding support, and post-placement integration.</p>
             </div>
         </div>
     </section>
 
-    <!-- Leadership Intelligence -->
+    <!-- Leadership Intelligence Split View -->
     <section id="intelligence" class="bg-light">
-        <div class="section-title">
-            <h2>Leadership Intelligence</h2>
-            <p>Research-driven insights that power strategic leadership decisions.</p>
-        </div>
-        <div class="grid-2">
-            <div class="card">
-                <h3>Talent Mapping</h3>
-                <p>Identify and map high-performing executives across target competitors, industries, and emerging sectors before the talent acquisition need becomes critical.</p>
+        <div class="split-grid">
+            <div>
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Intelligence Analytics" class="img-card">
             </div>
-            <div class="card">
-                <h3>Leadership Benchmarking</h3>
-                <p>Evaluate your internal and external leadership standards against broader industry benchmarks to define ideal competency profiles.</p>
-            </div>
-            <div class="card">
-                <h3>Competitive Intelligence</h3>
-                <p>Gain valuable strategic clarity on organizational structures, talent availability, executive movements, and prevailing compensation trends.</p>
-            </div>
-            <div class="card">
-                <h3>Strategic Succession</h3>
-                <p>Ensure uninterrupted business continuity by identifying and preparing internal and external candidates for future critical roles.</p>
+            <div>
+                <div class="section-title" style="text-align: left; margin-bottom: 2rem;">
+                    <h2>Leadership Intelligence</h2>
+                    <p>Research-driven insights that power strategic leadership decisions.</p>
+                </div>
+                <div class="grid-2">
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.25rem;">Talent Mapping</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Map high-performing executives across competitors before critical hiring needs arise.</p>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.25rem;">Benchmarking</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Evaluate internal and external standards against broader industry performance metrics.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.25rem;">Competitive Insights</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Gain clarity on organizational structures, executive movements, and compensation trends.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 0.25rem;">Strategic Succession</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Ensure uninterrupted business continuity by identifying future leadership talent today.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact & Call To Action -->
     <section id="contact">
-        <div class="contact-box text-center">
+        <div class="contact-box style="text-align: center;">
             <div class="section-title" style="margin-bottom: 2rem;">
                 <h2>Build Your Leadership Team With Confidence</h2>
                 <p>Connect with your executive search partners today to discuss your leadership requirements.</p>
@@ -835,17 +955,17 @@
             </div>
 
             <div class="contact-info">
-                <div class="contact-item">
+                <div class="contact-item" style="text-align: center;">
                     <h4>Location</h4>
-                    <p>Lucknow, India</p>
+                    <p style="color: var(--text-muted);">Lucknow, India</p>
                 </div>
-                <div class="contact-item">
+                <div class="contact-item" style="text-align: center;">
                     <h4>Direct Call</h4>
-                    <p>+91.9810844079</p>
+                    <p style="color: var(--text-muted);">+91.9810844079</p>
                 </div>
-                <div class="contact-item">
+                <div class="contact-item" style="text-align: center;">
                     <h4>Business Hours</h4>
-                    <p>Mon – Fri: 09:00 am – 06:00 pm</p>
+                    <p style="color: var(--text-muted);">Mon – Fri: 09:00 am – 06:00 pm</p>
                 </div>
             </div>
         </div>
