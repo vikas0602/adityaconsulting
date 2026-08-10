@@ -3,14 +3,556 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aditya Consulting - Executive Search & Leadership Advisory. Specializing in Global Tech Recruitment & Executive Search across India, Europe & APAC.">
+    <meta name="description" content="Aditya Consulting - Executive Search & Leadership Advisory. Building Leadership Teams with Global Tech Recruitment.">
     <title>Aditya Consulting - Executive Search & Leadership Advisory</title>
     
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Favicon -->
+    <!-- Favicon / Browser Icon -->
     <link rel="icon" type="image/png" href="logo.png">
+
+    <style>
+        /* =========================================================
+           Theme Rules: Royal Blue, Silver Grey & Solid White Background
+           ========================================================= */
+        :root {
+            --royal-blue: #0f2b5c;         /* Deep Royal Blue */
+            --royal-blue-light: #1e40af;   /* Vibrant Royal Blue */
+            --royal-blue-bright: #2563eb;  /* Bright Royal Accent */
+            --silver-grey: #94a3b8;        /* Silver Grey */
+            --silver-grey-light: #e2e8f0;  /* Light Silver Border/Accent */
+            --silver-grey-dark: #64748b;   /* Slate Silver Text */
+            --text-dark: #0f172a;          /* Charcoal Black */
+            --text-muted: #475569;
+            --text-light: #f8fafc;
+            --bg-white: #ffffff;           /* Clean Solid White */
+            --bg-offwhite: #f8fafc;        /* Minimalist Light Slate */
+            --border: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --card-shadow: 0 10px 30px -5px rgba(15, 43, 92, 0.05);
+            --hover-shadow: 0 20px 40px -10px rgba(15, 43, 92, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-white); /* 2. Solid White Background Rule */
+            overflow-x: hidden;
+        }
+
+        /* Top Info Bar */
+        .top-bar {
+            background-color: var(--royal-blue);
+            color: var(--silver-grey);
+            font-size: 0.85rem;
+            padding: 0.6rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .top-bar a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .top-bar a:hover {
+            color: var(--silver-grey-light);
+        }
+
+        /* Header / Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.8rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(15, 43, 92, 0.03);
+        }
+
+        /* 3. Top-Left Logo Placement */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--royal-blue);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            color: var(--silver-grey-dark);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.92rem;
+            position: relative;
+            padding: 0.25rem 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--royal-blue-light);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--royal-blue-light);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Animations */
+        @keyframes flyFromLeft {
+            0% { opacity: 0; transform: translateX(-100px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes zoomOutEntrance {
+            0% { opacity: 0; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 3. Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 43, 92, 0.94), rgba(30, 64, 175, 0.88)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+            color: white;
+            padding: 7rem 6% 8rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--silver-grey);
+            color: #e2e8f0;
+            padding: 0.45rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.75rem;
+            animation: zoomOutEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            animation: flyFromLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            display: inline-block;
+        }
+
+        /* Keyphrase highlighting in Royal Blue / Bright Accent */
+        .hero-keywords {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--silver-grey-light);
+            animation: zoomOutEntrance 1.3s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .highlight-blue {
+            color: #60a5fa; /* Vibrant Royal/Sky Blue highlight for Keywords */
+            background: rgba(37, 99, 235, 0.2);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 820px;
+            margin: 0 auto 2.5rem auto;
+            color: #cbd5e1;
+            animation: zoomOutEntrance 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            animation: fadeInUp 1.2s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Royal Blue Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--royal-blue-bright);
+            color: white;
+            padding: 0.9rem 2.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--royal-blue-light);
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--silver-grey);
+            color: white;
+            margin-left: 1rem;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+            transform: scale(1.05) translateY(-3px);
+        }
+
+        /* Section Layouts */
+        section {
+            padding: 6rem 6%;
+        }
+
+        .bg-light {
+            background-color: var(--bg-offwhite); /* Clean Off-White Background */
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .section-title h2 {
+            font-size: 2.4rem;
+            color: var(--royal-blue);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.8px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Grids */
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem; }
+
+        /* Cards with Royal Blue & Silver Theme */
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            padding: 2.25rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--card-shadow);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: scale(1.03) translateY(-6px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--royal-blue-bright);
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            height: 180px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.08);
+        }
+
+        .card h3 {
+            color: var(--royal-blue);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover h3 {
+            color: var(--royal-blue-light);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .img-card {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border);
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.75rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: var(--royal-blue);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: var(--radius-lg);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #60a5fa; /* Sky/Royal Blue highlight */
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            font-size: 0.95rem;
+            color: var(--silver-grey-light);
+        }
+
+        /* Lists */
+        .styled-list { list-style: none; }
+        .styled-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-dark);
+        }
+        .styled-list li::before {
+            content: "✓";
+            color: var(--royal-blue-bright);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Badges */
+        .badge-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .badge {
+            background: #eff6ff;
+            color: var(--royal-blue);
+            border: 1px solid #bfdbfe;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+        .badge:hover {
+            background-color: var(--royal-blue-light);
+            color: white;
+            border-color: var(--royal-blue-light);
+            cursor: pointer;
+        }
+
+        /* Process Steps */
+        .process-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-offwhite);
+            color: var(--royal-blue-light);
+            border: 2px solid var(--royal-blue-light);
+            border-radius: 50%;
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem;
+            max-width: 950px;
+            margin: 0 auto;
+            box-shadow: var(--card-shadow);
+        }
+
+        .contact-info {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            color: var(--royal-blue);
+            margin-bottom: 0.35rem;
+        }
+
+        .linkedin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--royal-blue-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .linkedin-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Cookie Notice Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--royal-blue);
+            color: white;
+            padding: 1rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            z-index: 2000;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cookie-btn {
+            background: var(--royal-blue-bright);
+            color: white;
+            border: none;
+            padding: 0.55rem 1.4rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .cookie-btn:hover {
+            background: var(--royal-blue-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #091322; /* Royal Dark Charcoal */
+            color: var(--silver-grey);
+            padding: 4rem 6% 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p { margin-bottom: 0.5rem; }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .grid-3, .grid-4, .split-grid, .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 2.5rem; }
+        }
+        @media (max-width: 640px) {
+            .grid-2, .grid-3, .grid-4, .split-grid, .stats-grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 1rem; }
+            nav { flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+            .btn-outline { margin-left: 0; margin-top: 1rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -20,7 +562,7 @@
         <div class="top-bar-links">
             <a href="https://wa.me/919810844079" target="_blank">Message us on WhatsApp</a>
             <span>|</span>
-            <a href="https://www.linkedin.com/company/adityaconsulting" target="_blank" class="top-linkedin">
+            <a href="https://www.linkedin.com/company/adityaconsulting" target="_blank" style="display: inline-flex; align-items: center; gap: 4px;">
                 <svg class="linkedin-icon" viewBox="0 0 24 24">
                     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                 </svg>
@@ -29,10 +571,11 @@
         </div>
     </div>
 
-    <!-- Header Navigation with Logo Image & Title/Subtitle -->
+    <!-- Header Navigation with Hybrid Arrow Logo (Top Left Corner) -->
     <header>
         <a href="#" class="logo-container">
-            <img src="logo.png" alt="Aditya Consulting Logo" class="logo-img">
+            <!-- 3. New Hybrid Arrow Logo placed at top-left corner -->
+            <img src="logo.png" alt="Aditya Consulting Hybrid Arrow Logo" class="logo-img">
             <div class="logo-text">
                 <span class="logo-title">Aditya Consulting</span>
                 <span class="logo-subtitle">Executive Search & Leadership Advisory</span>
@@ -50,16 +593,19 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- 3. Hero Section (With Highlighted Blue Keywords) -->
     <section class="hero">
-        <span class="hero-tag">Aditya Consulting is a boutique Executive Search & Leadership Advisory firm specializing in confidential leadership hiring across Technology, Product, Commercial, and Corporate functions.</span>
+        <span class="hero-tag">Scaling Global Teams Across India, Europe & APAC</span>
         
-        <h1>
-            Building Leadership Teams That Drive Business Growth
-            <span class="hero-keywords">Global Tech Recruitment & Executive Search</span>
-        </h1>
+        <!-- Main Line -->
+        <h1>Building Leadership Teams</h1>
+        
+        <!-- Keywords Highlighted in Blue Right Below -->
+        <div class="hero-keywords">
+            Specializing in <span class="highlight-blue">Global Tech Recruitment</span> & <span class="highlight-blue">Executive Search</span>
+        </div>
 
-        <p>We partner with founders, boards, investors, CHROs, and enterprises to identify transformational leaders through confidential, research-driven executive search.</p>
+        <p>Identifying leaders who transform businesses, accelerate growth, and create lasting impact.</p>
         
         <div class="hero-buttons">
             <a href="#contact" class="btn">Connect With Us</a>
@@ -81,7 +627,7 @@
                     Our approach combines market intelligence, industry expertise, and confidential headhunting to identify executives who align with your business strategy and culture.
                 </p>
                 <p style="color: var(--text-muted);">
-                    Partnering with organizations across India, Europe, and the APAC region, we help startups, Global Capability Centers (GCCs), and enterprises build leadership teams that drive innovation, operational excellence, and sustainable growth.
+                    From emerging startups to established enterprises, we help organizations build leadership teams capable of driving innovation, operational excellence, and sustainable growth.
                 </p>
             </div>
             <div>
@@ -90,7 +636,7 @@
         </div>
     </section>
 
-    <!-- Why Aditya Consulting -->
+    <!-- Why Us (Light Slate Background) -->
     <section id="why-us" class="bg-light">
         <div class="section-title">
             <h2>Why Leading Organizations Partner With Us</h2>
@@ -124,11 +670,11 @@
         </div>
     </section>
 
-    <!-- By The Numbers -->
+    <!-- Stats Section -->
     <section>
         <div class="section-title">
             <h2>By the Numbers</h2>
-            <p>Delivering measurable impact through confidential executive search and leadership hiring.</p>
+            <p>Delivering reliable, high-impact results across critical assignments.</p>
         </div>
         <div class="stats-grid">
             <div class="stat-card">
@@ -150,7 +696,7 @@
         </div>
     </section>
 
-    <!-- Solutions -->
+    <!-- Executive Search Solutions -->
     <section id="solutions" class="bg-light">
         <div class="section-title">
             <h2>Executive Search Solutions</h2>
@@ -173,15 +719,218 @@
             </div>
             <div class="card">
                 <div class="card-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Board Search" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Board & Advisory" class="card-img">
                 </div>
                 <h3>Board & Advisory Search</h3>
-                <p>Identifying Independent Directors, Board Members, and Strategic Advisors who strengthen governance and business performance.</p>
+                <p>Identifying Independent Directors, Board Members, and Strategic Advisors who strengthen governance and long-term business performance.</p>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Succession Planning" class="card-img">
+                </div>
+                <h3>Succession Planning</h3>
+                <p>Helping organizations develop robust leadership pipelines for future growth, continuity, and risk mitigation.</p>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Market Mapping" class="card-img">
+                </div>
+                <h3>Market Mapping & Intelligence</h3>
+                <p>Providing competitive insights, executive benchmarking, and talent mapping to enable well-informed strategic hiring decisions.</p>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80" alt="Tailored Engagement" class="card-img">
+                </div>
+                <h3>Tailored Engagement</h3>
+                <p>Flexible, long-term leadership advisory partnerships designed to adapt to your evolving business roadmap.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact & CTA -->
+    <!-- Expertise Section -->
+    <section id="expertise">
+        <div class="section-title">
+            <h2>Executive Search Expertise</h2>
+            <p>Functional domains where we routinely place high-impact executives.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Technology Leadership</h3>
+                <div class="badge-container">
+                    <span class="badge">CTO</span>
+                    <span class="badge">CIO</span>
+                    <span class="badge">VP Engineering</span>
+                    <span class="badge">Engineering Director</span>
+                    <span class="badge">Head of AI</span>
+                    <span class="badge">Head of Data</span>
+                    <span class="badge">Head of Cybersecurity</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Product & Digital</h3>
+                <div class="badge-container">
+                    <span class="badge">Chief Product Officer</span>
+                    <span class="badge">VP Product</span>
+                    <span class="badge">Product Directors</span>
+                    <span class="badge">UX Leadership</span>
+                    <span class="badge">Digital Transformation Leaders</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Commercial Leadership</h3>
+                <div class="badge-container">
+                    <span class="badge">Chief Revenue Officer</span>
+                    <span class="badge">VP Sales</span>
+                    <span class="badge">Sales Directors</span>
+                    <span class="badge">Marketing Leaders</span>
+                    <span class="badge">Customer Success Heads</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Corporate Leadership</h3>
+                <div class="badge-container">
+                    <span class="badge">CEO</span>
+                    <span class="badge">COO</span>
+                    <span class="badge">CFO</span>
+                    <span class="badge">CHRO</span>
+                    <span class="badge">General Counsel</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Operations & Industrial</h3>
+                <div class="badge-container">
+                    <span class="badge">Plant Directors</span>
+                    <span class="badge">Operations Heads</span>
+                    <span class="badge">Supply Chain Leaders</span>
+                    <span class="badge">Procurement Heads</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Recent Mandates</h3>
+                <ul class="styled-list">
+                    <li>CTO – AI Platform</li>
+                    <li>VP Engineering – GCC</li>
+                    <li>CFO – Manufacturing Group</li>
+                    <li>Head of Product – FinTech</li>
+                    <li>CRO – SaaS Company</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Served -->
+    <section id="industries" class="bg-light">
+        <div class="section-title">
+            <h2>Industries We Serve</h2>
+            <p>Delivering leadership solutions where talent drives primary competitive advantage.</p>
+        </div>
+        <div class="grid-4">
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Tech & SaaS" class="card-img">
+                </div>
+                <h3>Technology & SaaS</h3>
+                <p>B2B/B2C SaaS, Cloud Platforms, Enterprise Software, and Infrastructure.</p>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" alt="AI & Data" class="card-img">
+                </div>
+                <h3>AI & Data</h3>
+                <p>Generative AI, Machine Learning, Advanced Analytics, and Data Platforms.</p>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="GCCs" class="card-img">
+                </div>
+                <h3>GCCs</h3>
+                <p>Global Capability Centers establishing and scaling multi-functional centers in India.</p>
+            </div>
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80" alt="FinTech" class="card-img">
+                </div>
+                <h3>FinTech & Financials</h3>
+                <p>Banking, Digital Payments, WealthTech, InsurTech, and Financial Institutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Search Process -->
+    <section id="process">
+        <div class="section-title">
+            <h2>Our Executive Search Process</h2>
+            <p>A rigorous, multi-stage methodology designed to ensure flawless execution.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="process-number">01</div>
+                <h3>Discover</h3>
+                <p>In-depth consultation to clarify business objectives, culture, strategy, and executive success criteria.</p>
+            </div>
+            <div class="card">
+                <div class="process-number">02</div>
+                <h3>Research</h3>
+                <p>Comprehensive market mapping, competitor evaluation, and strategic identification of leadership profiles.</p>
+            </div>
+            <div class="card">
+                <div class="process-number">03</div>
+                <h3>Engage</h3>
+                <p>Discreet, confidential outreach to targeted passive and active leadership talent across global networks.</p>
+            </div>
+            <div class="card">
+                <div class="process-number">04</div>
+                <h3>Assess</h3>
+                <p>Structured competency interviews, behavioral assessments, soft-skills evaluation, and discreet reference verification.</p>
+            </div>
+            <div class="card">
+                <div class="process-number">05</div>
+                <h3>Present</h3>
+                <p>A curated shortlist of fully vetted, high-fit executive candidates accompanied by detailed comparative reports.</p>
+            </div>
+            <div class="card">
+                <div class="process-number">06</div>
+                <h3>Secure</h3>
+                <p>Offer strategy, executive negotiation management, seamless onboarding support, and post-placement integration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Intelligence -->
+    <section id="intelligence" class="bg-light">
+        <div class="split-grid">
+            <div>
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Intelligence Analytics" class="img-card">
+            </div>
+            <div>
+                <div class="section-title" style="text-align: left; margin-bottom: 2rem;">
+                    <h2>Leadership Intelligence</h2>
+                    <p>Research-driven insights that power strategic leadership decisions.</p>
+                </div>
+                <div class="grid-2">
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="color: var(--royal-blue); margin-bottom: 0.25rem;">Talent Mapping</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Map high-performing executives across competitors before critical hiring needs arise.</p>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="color: var(--royal-blue); margin-bottom: 0.25rem;">Benchmarking</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Evaluate internal and external standards against broader industry performance metrics.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--royal-blue); margin-bottom: 0.25rem;">Competitive Insights</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Gain clarity on organizational structures, executive movements, and compensation trends.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--royal-blue); margin-bottom: 0.25rem;">Strategic Succession</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Ensure uninterrupted business continuity by identifying future leadership talent today.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Call To Action -->
     <section id="contact">
         <div class="contact-box" style="text-align: center;">
             <div class="section-title" style="margin-bottom: 2rem;">
@@ -213,6 +962,10 @@
                         </a>
                     </p>
                 </div>
+                <div class="contact-item">
+                    <h4>Business Hours</h4>
+                    <p style="color: var(--text-muted);">Mon – Fri: 09:00 am – 06:00 pm</p>
+                </div>
             </div>
         </div>
     </section>
@@ -222,6 +975,12 @@
         <p><strong>Aditya Consulting</strong> - Executive Search & Leadership Advisory</p>
         <p>Copyright &copy; 2026 Aditya Consulting. All Rights Reserved.</p>
     </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <span>We use cookies to analyze website traffic and optimize your website experience.</span>
+        <button class="cookie-btn" onclick="document.getElementById('cookieBanner').style.display='none'">Accept</button>
+    </div>
 
 </body>
 </html>
