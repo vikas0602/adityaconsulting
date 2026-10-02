@@ -327,7 +327,7 @@
             .btn-outline { margin-left: 0; margin-top: 1rem; }
         }
 
-        /* Dynamic Image Cards */
+        /* Dynamic Cards */
         .card {
             background: var(--bg-white);
             border: 1px solid var(--border);
@@ -487,7 +487,7 @@
             margin-bottom: 1.25rem;
         }
 
-        /* Contact Box & Form Table Styles */
+        /* Contact Box & Form Styles */
         .contact-box {
             background: var(--bg-white);
             border: 1px solid var(--border);
@@ -561,24 +561,7 @@
 
         .form-input textarea {
             resize: vertical;
-            min-height: 110px;
-        }
-
-        .file-upload-container {
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-        }
-
-        .form-input input[type="file"] {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            padding: 0.4rem 0;
-        }
-
-        .file-hint {
-            font-size: 0.78rem;
-            color: var(--silver-grey-dark);
+            min-height: 120px;
         }
 
         .submit-btn {
@@ -1099,7 +1082,7 @@
         </div>
     </section>
 
-    <!-- Contact & Call To Action with Form Table -->
+    <!-- Contact & Call To Action Section (Clean Blank Form) -->
     <section id="contact">
         <div class="contact-box">
             <div class="section-title" style="margin-bottom: 2rem; text-align: center;">
@@ -1107,8 +1090,8 @@
                 <p>Connect with our executive search partners to discuss your leadership requirements.</p>
             </div>
 
-            <!-- Interactive Form Table -->
-            <form action="mailto:vikas@adityaconsulting.net" method="post" enctype="multipart/form-data" class="contact-form-wrapper">
+            <!-- Blank Contact Form -->
+            <form action="https://formspree.io/f/mdekrnzd" method="POST" class="contact-form-wrapper">
                 <table class="contact-form-table">
                     <tbody>
                         <tr>
@@ -1116,7 +1099,7 @@
                                 <label for="fullName">Full Name <span class="required">*</span></label>
                             </td>
                             <td class="form-input">
-                                <input type="text" id="fullName" name="fullName" placeholder="e.g., Sarah Jenkins" required>
+                                <input type="text" id="fullName" name="fullName" required>
                             </td>
                         </tr>
                         <tr>
@@ -1124,7 +1107,7 @@
                                 <label for="email">Email ID <span class="required">*</span></label>
                             </td>
                             <td class="form-input">
-                                <input type="email" id="email" name="email" placeholder="e.g., sarah@company.com" required>
+                                <input type="email" id="email" name="_replyto" required>
                             </td>
                         </tr>
                         <tr>
@@ -1132,18 +1115,7 @@
                                 <label for="message">Message <span class="required">*</span></label>
                             </td>
                             <td class="form-input">
-                                <textarea id="message" name="message" rows="4" placeholder="Briefly describe your hiring requirements or query..." required></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="form-label">
-                                <label for="attachment">Attachment</label>
-                            </td>
-                            <td class="form-input">
-                                <div class="file-upload-container">
-                                    <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx">
-                                    <span class="file-hint">Accepted formats: PDF, DOC, DOCX (Max 10MB)</span>
-                                </div>
+                                <textarea id="message" name="message" rows="4" required></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -1166,7 +1138,7 @@
                 <div class="contact-item">
                     <h4>Email Us</h4>
                     <p style="font-size: 0.95rem; margin-top: 0.35rem;">
-                        <a href="mailto:info@adityaconsulting.net" style="color: var(--royal-blue); text-decoration: none; font-weight: 600;">info@adityaconsulting.net</a>
+                        <a href="mailto:vikas@adityaconsulting.net" style="color: var(--royal-blue); text-decoration: none; font-weight: 600;">vikas@adityaconsulting.net</a>
                     </p>
                 </div>
                 <div class="contact-item">
