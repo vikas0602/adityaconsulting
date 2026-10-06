@@ -47,7 +47,7 @@
             overflow-x: hidden;
         }
 
-        /* Primary Header / Navbar */
+        /* Primary Header Navigation */
         header {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
@@ -275,9 +275,14 @@
             transform: scale(1.05) translateY(-3px);
         }
 
-        /* Section Layouts */
+        .btn-sm {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.85rem;
+        }
+
+        /* Section Layouts & Spacing */
         section {
-            padding: 6rem 6%;
+            padding: 7rem 6%;
         }
 
         .bg-light {
@@ -310,11 +315,19 @@
             font-size: 1.1rem;
         }
 
+        .subsection-heading {
+            font-size: 1.8rem;
+            color: var(--royal-blue-dark);
+            text-align: center;
+            margin: 4.5rem 0 2.5rem 0;
+            letter-spacing: -0.5px;
+        }
+
         /* Grids */
-        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem; }
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.25rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.25rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 
         @media (max-width: 992px) {
             .grid-3, .grid-4, .split-grid { grid-template-columns: repeat(2, 1fr); }
@@ -383,7 +396,7 @@
 
         .img-card {
             width: 100%;
-            height: 400px;
+            height: 420px;
             object-fit: cover;
             border-radius: var(--radius-lg);
             box-shadow: var(--card-shadow);
@@ -394,6 +407,43 @@
         .img-card:hover {
             transform: scale(1.03);
             box-shadow: var(--hover-shadow);
+        }
+
+        /* Job Posting Card Specifics */
+        .job-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .job-location {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--royal-blue-bright);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-meta {
+            margin: 1rem 0 1.5rem 0;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .jobs-status-loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            padding: 3rem 0;
         }
 
         /* Stats Section */
@@ -671,7 +721,7 @@
 </head>
 <body>
 
-    <!-- Header Navigation (Primary Header) -->
+    <!-- Header Navigation -->
     <header>
         <a href="#" class="logo-container">
             <img src="logo.png?v=2" alt="Aditya Consulting Logo" class="logo-img">
@@ -682,12 +732,10 @@
         </a>
         <nav>
             <a href="#about">About Us</a>
-            <a href="#why-us">Why Us</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#expertise">Expertise</a>
+            <a href="#solutions">Solutions & Expertise</a>
             <a href="#industries">Industries</a>
-            <a href="#process">Process</a>
-            <a href="#intelligence">Intelligence</a>
+            <a href="#process">Process & Intelligence</a>
+            <a href="#careers">Current Jobs</a>
             <a href="#contact" class="nav-cta">Contact Us</a>
         </nav>
     </header>
@@ -696,7 +744,6 @@
     <section class="hero">
         <span class="hero-tag">Aditya Consulting is a boutique Executive Search & Leadership Advisory firm specializing in confidential leadership hiring across Technology, Real Estate, Luxury Hospitality & Retail, Product and Enterprise sectors.</span>
         
-        <!-- Main Line -->
         <h1>Building Leadership Teams That Drive Business Growth</h1>
         
         <div class="hero-keywords">
@@ -710,9 +757,9 @@
         </div>
     </section>
 
-    <!-- About Us Split Section -->
+    <!-- SECTION 1: ABOUT US & CORE VALUE PROPOSITION -->
     <section id="about">
-        <div class="split-grid">
+        <div class="split-grid" style="margin-bottom: 5rem;">
             <div>
                 <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
                     <h2>Trusted Advisors in Global Executive Search</h2>
@@ -731,15 +778,10 @@
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Executive Leadership Meeting" class="img-card">
             </div>
         </div>
-    </section>
 
-    <!-- Why Aditya Consulting -->
-    <section id="why-us" class="bg-light">
-        <div class="section-title">
-            <h2>Why Leading Organizations Partner With Us</h2>
-            <p>Our commitment to precision, speed, and discretion sets us apart.</p>
-        </div>
-        <div class="grid-3">
+        <!-- Why Aditya Consulting Subsection -->
+        <h3 class="subsection-heading">Why Leading Organizations Partner With Us</h3>
+        <div class="grid-3" style="margin-bottom: 5rem;">
             <div class="card">
                 <h3>Partner-Led Search</h3>
                 <p>Direct involvement of experienced senior leadership partners on every single search engagement.</p>
@@ -765,14 +807,9 @@
                 <p>In-depth competitor analysis, talent mapping, and customized search strategies for optimal fit.</p>
             </div>
         </div>
-    </section>
 
-    <!-- By The Numbers -->
-    <section>
-        <div class="section-title">
-            <h2>By the Numbers</h2>
-            <p>Delivering measurable impact through confidential executive search and leadership hiring.</p>
-        </div>
+        <!-- By The Numbers Subsection -->
+        <h3 class="subsection-heading">By the Numbers</h3>
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="number">20+</div>
@@ -793,13 +830,15 @@
         </div>
     </section>
 
-    <!-- Executive Search Solutions -->
+    <!-- SECTION 2: EXECUTIVE SEARCH SOLUTIONS & EXPERTISE -->
     <section id="solutions" class="bg-light">
         <div class="section-title">
-            <h2>Executive Search Solutions</h2>
-            <p>Customized leadership acquisition programs designed for enterprise growth.</p>
+            <h2>Executive Search Solutions & Expertise</h2>
+            <p>Customized leadership acquisition programs and functional domain specialization.</p>
         </div>
-        <div class="grid-3">
+
+        <!-- Solutions Cards -->
+        <div class="grid-3" style="margin-bottom: 5rem;">
             <div class="card">
                 <div class="card-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Executive Search" class="card-img">
@@ -843,14 +882,9 @@
                 <p>Flexible, long-term leadership advisory partnerships designed to adapt to your evolving business roadmap.</p>
             </div>
         </div>
-    </section>
 
-    <!-- Executive Search Expertise -->
-    <section id="expertise">
-        <div class="section-title">
-            <h2>Executive Search Expertise</h2>
-            <p>Functional domains where we routinely place high-impact executives.</p>
-        </div>
+        <!-- Functional Expertise Subsection -->
+        <h3 class="subsection-heading">Functional Domain Expertise</h3>
         <div class="grid-3">
             <div class="card">
                 <h3>Technology Leadership</h3>
@@ -926,25 +960,29 @@
                     <span class="badge">Quality Leaders</span>
                 </div>
             </div>
-            <div class="card">
-                <h3>Recent Mandates</h3>
-                <ul class="styled-list">
-                    <li>CTO – AI Platform</li>
-                    <li>VP Engineering – GCC</li>
-                    <li>Chief Architect</li>
-                    <li>Design Director – Luxury Development Firm (GCC)</li>
-                    <li>Country Manager – Luxury Retail Brand</li>
-                    <li>General Manager – Luxury Resort & Hospitality</li>
-                    <li>CFO – Manufacturing Group</li>
-                    <li>Head of Product – FinTech</li>
-                    <li>CRO – SaaS Company</li>
-                </ul>
+            <div class="card" style="grid-column: span 2;">
+                <h3>Recent Executive Mandates</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <ul class="styled-list">
+                        <li>CTO – AI Platform</li>
+                        <li>VP Engineering – GCC</li>
+                        <li>Chief Architect</li>
+                        <li>Design Director – Luxury Development Firm (GCC)</li>
+                        <li>Country Manager – Luxury Retail Brand</li>
+                    </ul>
+                    <ul class="styled-list">
+                        <li>General Manager – Luxury Resort & Hospitality</li>
+                        <li>CFO – Manufacturing Group</li>
+                        <li>Head of Product – FinTech</li>
+                        <li>CRO – SaaS Company</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Industries We Serve -->
-    <section id="industries" class="bg-light">
+    <!-- SECTION 3: INDUSTRIES WE SERVE -->
+    <section id="industries">
         <div class="section-title">
             <h2>Industries We Serve</h2>
             <p>Delivering leadership solutions where talent drives primary competitive advantage.</p>
@@ -1009,13 +1047,13 @@
         </div>
     </section>
 
-    <!-- Executive Search Process -->
-    <section id="process">
+    <!-- SECTION 4: SEARCH PROCESS & LEADERSHIP INTELLIGENCE -->
+    <section id="process" class="bg-light">
         <div class="section-title">
             <h2>Our Executive Search Process</h2>
             <p>A rigorous, multi-stage methodology designed to ensure flawless execution.</p>
         </div>
-        <div class="grid-3">
+        <div class="grid-3" style="margin-bottom: 5rem;">
             <div class="card">
                 <div class="process-number">01</div>
                 <h3>Discover</h3>
@@ -1047,18 +1085,16 @@
                 <p>Offer strategy, executive negotiation management, seamless onboarding support, and post-placement integration.</p>
             </div>
         </div>
-    </section>
 
-    <!-- Leadership Intelligence Split View -->
-    <section id="intelligence" class="bg-light">
-        <div class="split-grid">
+        <!-- Leadership Intelligence Subsection -->
+        <div class="split-grid bg-white" style="padding: 3.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--card-shadow);">
             <div>
-                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Intelligence Analytics" class="img-card">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=80" alt="Intelligence Analytics" class="img-card" style="height: 350px;">
             </div>
             <div>
                 <div class="section-title" style="text-align: left; margin-bottom: 2rem;">
-                    <h2>Leadership Intelligence</h2>
-                    <p>Research-driven insights that power strategic leadership decisions.</p>
+                    <h2 style="font-size: 2rem;">Leadership Intelligence</h2>
+                    <p style="font-size: 1rem;">Research-driven insights that power strategic leadership decisions.</p>
                 </div>
                 <div class="grid-2">
                     <div style="margin-bottom: 1rem;">
@@ -1082,12 +1118,23 @@
         </div>
     </section>
 
-    <!-- Contact & Call To Action Section (Clean Blank Form) -->
-    <section id="contact">
+    <!-- SECTION 5: CURRENT OPENINGS (DYNAMIC GOOGLE SHEET INTEGRATION) -->
+    <section id="careers">
+        <div class="section-title">
+            <h2>Current Executive Opportunities</h2>
+            <p>Explore active senior leadership mandates managed across India, Middle East (GCC), Europe, and APAC.</p>
+        </div>
+        <div id="jobsGrid" class="grid-3">
+            <div class="jobs-status-loading">Loading live opportunities from Google Sheets...</div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT US & LEADERSHIP ADVISORY -->
+    <section id="contact" class="bg-light">
         <div class="contact-box">
             <div class="section-title" style="margin-bottom: 2rem; text-align: center;">
                 <h2>Build Your Leadership Team With Confidence</h2>
-                <p>Connect with our executive search partners to discuss your leadership requirements.</p>
+                <p>Connect with our executive search partners to discuss your leadership requirements or career transition.</p>
             </div>
 
             <!-- Blank Contact Form -->
@@ -1112,7 +1159,7 @@
                         </tr>
                         <tr>
                             <td class="form-label">
-                                <label for="message">Message <span class="required">*</span></label>
+                                <label for="message">Message / Mandate Inquiry <span class="required">*</span></label>
                             </td>
                             <td class="form-input">
                                 <textarea id="message" name="message" rows="4" required></textarea>
@@ -1171,5 +1218,81 @@
         <button class="cookie-btn" onclick="document.getElementById('cookieBanner').style.display='none'">Accept</button>
     </div>
 
+    <!-- PapaParse CDN for parsing published Google Sheet CSV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script>
+        // Exact published Google Sheet CSV endpoint provided
+        const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS8fSuqnv0t8wlTAlKZZZoVa7BslSZgWskTVakzORGEtpCrgD-ec8WfMXlK--f3TQZMWF4rfMAe-6hg/pub?gid=0&single=true&output=csv";
+
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchJobsFromSheet();
+        });
+
+        function fetchJobsFromSheet() {
+            Papa.parse(GOOGLE_SHEET_CSV_URL, {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: function(results) {
+                    renderJobs(results.data);
+                },
+                error: function(err) {
+                    console.error("Error fetching Google Sheet CSV:", err);
+                    renderFallbackJobs();
+                }
+            });
+        }
+
+        function renderJobs(jobs) {
+            const jobsGrid = document.getElementById("jobsGrid");
+            
+            // Filter out empty rows
+            const validJobs = jobs.filter(j => j.Title && j.Title.trim() !== "");
+
+            if (!validJobs || validJobs.length === 0) {
+                renderFallbackJobs();
+                return;
+            }
+
+            let cardsHtml = validJobs.map(job => `
+                <div class="card job-card">
+                    <div>
+                        <div class="job-location">${job.Location || 'GCC / Global'}</div>
+                        <h3>${job.Title}</h3>
+                        <p>${job.Summary || job.Overview || 'Confidential executive search assignment.'}</p>
+                        <div class="job-meta">
+                            <div class="job-meta-item"><span>Sector:</span> <strong>${job.Sector || 'Executive Search'}</strong></div>
+                            ${job.Experience ? `<div class="job-meta-item"><span>Experience:</span> <strong>${job.Experience}</strong></div>` : ''}
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <a href="${job['Apply Link'] || job.ApplyLink || '#contact'}" class="btn btn-sm" style="width: 100%; text-align: center;">Inquire / Apply</a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Append the confidential submission box at the end
+            cardsHtml += `
+                <div class="card job-card" style="background: var(--bg-offwhite); justify-content: center; text-align: center; border: 2px dashed var(--silver-grey);">
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">Confidential Leadership Search</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Many of our senior mandates are managed discreetly without public posting. Submit your CV for confidential consideration.</p>
+                        <a href="#contact" class="btn btn-sm">Submit Confidential Profile</a>
+                    </div>
+                </div>
+            `;
+
+            jobsGrid.innerHTML = cardsHtml;
+        }
+
+        function renderFallbackJobs() {
+            const sampleJobs = [
+                { Title: "Director Architect", Location: "Riyadh, Saudi Arabia", Sector: "Real Estate & Design", Experience: "15+ Years", Summary: "Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer." },
+                { Title: "Sales Director – Luxury Furniture", Location: "Riyadh, Saudi Arabia", Sector: "Luxury Retail & Interiors", Experience: "12+ Years", Summary: "Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC." },
+                { Title: "VP of Engineering (GCC Head)", Location: "Bangalore / Hyderabad, India", Sector: "Technology & Enterprise SaaS", Experience: "18+ Years", Summary: "Scaling a 200+ core engineering center for a global enterprise SaaS platform." }
+            ];
+            renderJobs(sampleJobs);
+        }
+    </script>
 </body>
 </html>
