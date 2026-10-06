@@ -276,8 +276,9 @@
         }
 
         .btn-sm {
-            padding: 0.5rem 1.2rem;
-            font-size: 0.85rem;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.88rem;
+            white-space: nowrap;
         }
 
         /* Section Layouts & Spacing */
@@ -409,37 +410,90 @@
             box-shadow: var(--hover-shadow);
         }
 
-        /* Job Posting Card Specifics */
-        .job-card {
+        /* --- COMPACT SINGLE-ROW JOB LIST STYLING --- */
+        .job-rows-container {
+            max-width: 1050px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .job-row {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 2rem;
+            display: flex;
             justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.35s ease;
         }
 
-        .job-location {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--royal-blue-bright);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
+        .job-row:hover {
+            border-color: var(--royal-blue-bright);
+            box-shadow: var(--hover-shadow);
+            transform: translateY(-2px);
         }
 
-        .job-meta {
-            margin: 1rem 0 1.5rem 0;
-            font-size: 0.88rem;
-            color: var(--text-muted);
+        .job-info {
+            flex: 1;
         }
 
-        .job-meta-item {
+        .job-row-top {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 1rem;
             margin-bottom: 0.3rem;
         }
 
+        .job-location-badge {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--royal-blue-bright);
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .job-info h3 {
+            color: var(--royal-blue-dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .job-info p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.4;
+        }
+
+        .job-action {
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .job-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.25rem;
+                padding: 1.25rem;
+            }
+            .job-action {
+                width: 100%;
+            }
+            .job-action .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
         .jobs-status-loading {
-            grid-column: 1 / -1;
             text-align: center;
             color: var(--text-muted);
             font-size: 1.1rem;
@@ -1118,13 +1172,13 @@
         </div>
     </section>
 
-    <!-- SECTION 5: CURRENT OPENINGS (DYNAMIC GOOGLE SHEET INTEGRATION) -->
+    <!-- SECTION 5: CURRENT OPENINGS (COMPACT SINGLE-ROW LIST) -->
     <section id="careers">
         <div class="section-title">
             <h2>Current Executive Opportunities</h2>
             <p>Explore active senior leadership mandates managed across India, Middle East (GCC), Europe, and APAC.</p>
         </div>
-        <div id="jobsGrid" class="grid-3">
+        <div id="jobsGrid">
             <div class="jobs-status-loading">Loading live opportunities from Google Sheets...</div>
         </div>
     </section>
@@ -1221,7 +1275,7 @@
     <!-- PapaParse CDN for parsing published Google Sheet CSV -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script>
-        // Exact published Google Sheet CSV endpoint provided
+        // Published Google Sheet CSV endpoint
         const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS8fSuqnv0t8wlTAlKZZZoVa7BslSZgWskTVakzORGEtpCrgD-ec8WfMXlK--f3TQZMWF4rfMAe-6hg/pub?gid=0&single=true&output=csv";
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -1254,42 +1308,42 @@
                 return;
             }
 
-            let cardsHtml = validJobs.map(job => `
-                <div class="card job-card">
-                    <div>
-                        <div class="job-location">${job.Location || 'GCC / Global'}</div>
-                        <h3>${job.Title}</h3>
-                        <p>${job.Summary || job.Overview || 'Confidential executive search assignment.'}</p>
-                        <div class="job-meta">
-                            <div class="job-meta-item"><span>Sector:</span> <strong>${job.Sector || 'Executive Search'}</strong></div>
-                            ${job.Experience ? `<div class="job-meta-item"><span>Experience:</span> <strong>${job.Experience}</strong></div>` : ''}
+            let rowsHtml = validJobs.map(job => `
+                <div class="job-row">
+                    <div class="job-info">
+                        <div class="job-row-top">
+                            <span class="job-location-badge">${job.Location || 'GCC / Global'}</span>
                         </div>
+                        <h3>${job.Title}</h3>
+                        <p>${job.Summary || job.Description || 'Confidential executive search assignment.'}</p>
                     </div>
-                    <div style="margin-top: 1rem;">
-                        <a href="${job['Apply Link'] || job.ApplyLink || '#contact'}" class="btn btn-sm" style="width: 100%; text-align: center;">Inquire / Apply</a>
+                    <div class="job-action">
+                        <a href="${job.ApplyLink || job['Apply Link'] || '#contact'}" class="btn btn-sm">Inquire / Apply</a>
                     </div>
                 </div>
             `).join('');
 
-            // Append the confidential submission box at the end
-            cardsHtml += `
-                <div class="card job-card" style="background: var(--bg-offwhite); justify-content: center; text-align: center; border: 2px dashed var(--silver-grey);">
-                    <div>
-                        <h3 style="margin-bottom: 0.5rem;">Confidential Leadership Search</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Many of our senior mandates are managed discreetly without public posting. Submit your CV for confidential consideration.</p>
-                        <a href="#contact" class="btn btn-sm">Submit Confidential Profile</a>
+            // Append a discreet confidential submission row
+            rowsHtml += `
+                <div class="job-row" style="background: var(--bg-offwhite); border: 2px dashed var(--silver-grey); text-align: center; justify-content: center;">
+                    <div class="job-info" style="text-align: center;">
+                        <h3 style="margin-bottom: 0.25rem;">Confidential Leadership Search</h3>
+                        <p style="font-size: 0.9rem;">Many of our senior mandates are managed discreetly without public posting. Submit your CV for confidential consideration.</p>
+                    </div>
+                    <div class="job-action">
+                        <a href="#contact" class="btn btn-sm">Submit Profile</a>
                     </div>
                 </div>
             `;
 
-            jobsGrid.innerHTML = cardsHtml;
+            jobsGrid.innerHTML = `<div class="job-rows-container">${rowsHtml}</div>`;
         }
 
         function renderFallbackJobs() {
             const sampleJobs = [
-                { Title: "Director Architect", Location: "Riyadh, Saudi Arabia", Sector: "Real Estate & Design", Experience: "15+ Years", Summary: "Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer." },
-                { Title: "Sales Director – Luxury Furniture", Location: "Riyadh, Saudi Arabia", Sector: "Luxury Retail & Interiors", Experience: "12+ Years", Summary: "Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC." },
-                { Title: "VP of Engineering (GCC Head)", Location: "Bangalore / Hyderabad, India", Sector: "Technology & Enterprise SaaS", Experience: "18+ Years", Summary: "Scaling a 200+ core engineering center for a global enterprise SaaS platform." }
+                { Title: "Director Architect", Location: "Riyadh, Saudi Arabia", Summary: "Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer.", ApplyLink: "#contact" },
+                { Title: "Sales Director – Luxury Furniture", Location: "Riyadh, Saudi Arabia", Summary: "Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC.", ApplyLink: "#contact" },
+                { Title: "VP of Engineering (GCC Head)", Location: "Bangalore / Hyderabad, India", Summary: "Scaling a 200+ core engineering center for a global enterprise SaaS platform.", ApplyLink: "#contact" }
             ];
             renderJobs(sampleJobs);
         }
