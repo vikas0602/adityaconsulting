@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Current Executive Mandates & Leadership Opportunities - Aditya HR Consulting">
+    <title>Current Jobs - Aditya HR Consulting</title>
+    
+    <!-- Google Tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQWBLSBQ2L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZQWBLSBQ2L');
+    </script>
+
+    <!-- Favicon / Browser Icon -->
+    <link rel="icon" type="image/png" href="logo.png?v=2">
+
+    <style>
+        :root {
+            --royal-blue-dark: #0f2b5c;   
+            --royal-blue: #1e40af;        
+            --royal-blue-bright: #2563eb; 
+            --silver-grey: #94a3b8;       
+            --silver-grey-light: #e2e8f0; 
+            --silver-grey-dark: #64748b;  
+            --text-dark: #0f172a;         
+            --text-muted: #475569;
+            --bg-white: #ffffff;          
+            --bg-offwhite: #f8fafc;       
+            --border: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --card-shadow: 0 10px 30px -5px rgba(15, 43, 92, 0.05);
+            --hover-shadow: 0 20px 40px -10px rgba(15, 43, 92, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(15, 43, 92, 0.03);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--royal-blue-dark);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            color: var(--silver-grey-dark);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 0.25rem 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--royal-blue-bright);
+        }
+
+        .nav-cta {
+            background: var(--royal-blue-bright);
+            color: white !important;
+            padding: 0.55rem 1.25rem;
+            border-radius: 6px;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(135deg, rgba(15, 43, 92, 0.96), rgba(30, 64, 175, 0.92));
+            color: white;
+            padding: 3.5rem 6%;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-banner p {
+            font-size: 1.1rem;
+            color: var(--silver-grey-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content Portal Layout */
+        main {
+            flex: 1;
+            padding: 3.5rem 6%;
+        }
+
+        .careers-portal-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .careers-search-bar {
+            background: var(--royal-blue-dark);
+            padding: 1.25rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .careers-search-input-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 0 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .careers-search-input-wrapper input {
+            width: 100%;
+            padding: 0.85rem 0.5rem;
+            border: none;
+            outline: none;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .careers-search-btn {
+            background: var(--royal-blue-bright);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .careers-search-btn:hover {
+            background: var(--royal-blue);
+        }
+
+        .careers-main-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .careers-filters-sidebar {
+            background: var(--royal-blue-dark);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            color: white;
+            box-shadow: var(--card-shadow);
+        }
+
+        .careers-filters-sidebar h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 0.75rem;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--silver-grey-light);
+        }
+
+        .filter-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--silver-grey);
+            background: white;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .careers-listings-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .careers-listings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .job-card-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.35s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .job-card-item:hover {
+            border-color: var(--royal-blue-bright);
+            box-shadow: var(--hover-shadow);
+            transform: translateY(-2px);
+        }
+
+        .job-card-details h3 {
+            color: var(--royal-blue-dark);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .job-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--silver-grey-dark);
+            margin-bottom: 0.6rem;
+        }
+
+        .job-card-details p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.4;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--royal-blue-bright);
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            white-space: nowrap;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--royal-blue);
+        }
+
+        footer {
+            background: #091322;
+            color: var(--silver-grey);
+            padding: 3rem 6% 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 900px) {
+            .careers-main-layout { grid-template-columns: 1fr; }
+            .careers-search-bar { flex-direction: column; }
+            .job-card-item { flex-direction: column; align-items: flex-start; }
+            .job-card-item .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png?v=2" alt="Aditya HR Consulting Logo" class="logo-img">
+            <div class="logo-text">
+                <span class="logo-title">Aditya HR Consulting</span>
+                <span class="logo-subtitle">Executive Search & Leadership Advisory</span>
+            </div>
+        </a>
+        <nav>
+            <a href="index.html#about">About Us</a>
+            <a href="index.html#solutions">Solutions & Expertise</a>
+            <a href="index.html#industries">Industries</a>
+            <a href="index.html#process">Process & Intelligence</a>
+            <a href="jobs.html" class="active">Current Jobs</a>
+            <a href="index.html#contact" class="nav-cta">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <h1>Current Executive Mandates</h1>
+        <p>Explore active executive search opportunities managed across India, Middle East (GCC), APAC, and Europe.</p>
+    </div>
+
+    <!-- Main Content Portal -->
+    <main>
+        <div class="careers-portal-wrapper">
+            <!-- Search Bar -->
+            <div class="careers-search-bar">
+                <div class="careers-search-input-wrapper">
+                    <svg style="width: 20px; height: 20px; color: var(--silver-grey-dark); flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <input type="text" id="jobSearchInput" placeholder="Job Title, Keyword, Specialization..." onkeyup="filterJobs()">
+                </div>
+                <button class="careers-search-btn" onclick="filterJobs()">Search Jobs</button>
+            </div>
+
+            <div class="careers-main-layout">
+                <!-- Filters Sidebar -->
+                <div class="careers-filters-sidebar">
+                    <h3>Filters</h3>
+                    
+                    <div class="filter-group">
+                        <label for="workModelFilter">Work Model</label>
+                        <select id="workModelFilter" onchange="filterJobs()">
+                            <option value="">ALL</option>
+                            <option value="On-site">On-site</option>
+                            <option value="Hybrid">Hybrid</option>
+                            <option value="Remote">Remote</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="industryFilter">Industry / Sector</label>
+                        <select id="industryFilter" onchange="filterJobs()">
+                            <option value="">ALL</option>
+                            <option value="Technology">Technology & SaaS</option>
+                            <option value="Real Estate">Real Estate & Architecture</option>
+                            <option value="Luxury Retail">Luxury Retail & Hospitality</option>
+                            <option value="GCC">Global Capability Center (GCC)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="locationFilter">Region / Location</label>
+                        <select id="locationFilter" onchange="filterJobs()">
+                            <option value="">ALL</option>
+                            <option value="Saudi Arabia">Saudi Arabia / KSA</option>
+                            <option value="GCC">GCC / Middle East</option>
+                            <option value="India">India</option>
+                            <option value="Europe">Europe / APAC</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Listings Area -->
+                <div class="careers-listings-area">
+                    <div class="careers-listings-header">
+                        <span id="openingsCount">Loading openings...</span>
+                    </div>
+                    <div id="jobsGrid">
+                        <div style="text-align: center; color: var(--text-muted); padding: 3rem 0;">Loading live opportunities from Google Sheets...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Aditya HR Consulting</strong> - Executive Search & Leadership Advisory</p>
+        <p>Copyright &copy; 2026 Aditya HR Consulting. All Rights Reserved.</p>
+    </footer>
+
+    <!-- PapaParse CDN for parsing Google Sheet CSV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script>
+        const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS8fSuqnv0t8wlTAlKZZZoVa7BslSZgWskTVakzORGEtpCrgD-ec8WfMXlK--f3TQZMWF4rfMAe-6hg/pub?gid=0&single=true&output=csv";
+
+        let allFetchedJobs = [];
+
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchJobsFromSheet();
+        });
+
+        function fetchJobsFromSheet() {
+            Papa.parse(GOOGLE_SHEET_CSV_URL, {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: function(results) {
+                    allFetchedJobs = results.data.filter(j => j.Title && j.Title.trim() !== "");
+                    if (allFetchedJobs.length === 0) {
+                        allFetchedJobs = getFallbackJobs();
+                    }
+                    renderJobs(allFetchedJobs);
+                },
+                error: function(err) {
+                    allFetchedJobs = getFallbackJobs();
+                    renderJobs(allFetchedJobs);
+                }
+            });
+        }
+
+        function getFallbackJobs() {
+            return [
+                { Title: "Director Architect", Location: "Riyadh, Saudi Arabia", Industry: "Real Estate", WorkModel: "On-site", Summary: "Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer.", ApplyLink: "index.html#contact" },
+                { Title: "Sales Director – Luxury Furniture", Location: "Riyadh, Saudi Arabia", Industry: "Luxury Retail", WorkModel: "On-site", Summary: "Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC.", ApplyLink: "index.html#contact" },
+                { Title: "VP of Engineering (GCC Head)", Location: "Bangalore / Hyderabad, India", Industry: "Technology", WorkModel: "Hybrid", Summary: "Scaling a 200+ core engineering center for a global enterprise SaaS platform.", ApplyLink: "index.html#contact" }
+            ];
+        }
+
+        function filterJobs() {
+            const searchQuery = document.getElementById("jobSearchInput").value.toLowerCase();
+            const workModelVal = document.getElementById("workModelFilter").value;
+            const industryVal = document.getElementById("industryFilter").value;
+            const locationVal = document.getElementById("locationFilter").value;
+
+            const filtered = allFetchedJobs.filter(job => {
+                const titleMatch = (job.Title || "").toLowerCase().includes(searchQuery) || 
+                                   (job.Summary || job.Description || "").toLowerCase().includes(searchQuery);
+                const workMatch = !workModelVal || (job.WorkModel || "").toLowerCase().includes(workModelVal.toLowerCase());
+                const industryMatch = !industryVal || (job.Industry || "").toLowerCase().includes(industryVal.toLowerCase());
+                const locationMatch = !locationVal || (job.Location || "").toLowerCase().includes(locationVal.toLowerCase());
+
+                return titleMatch && workMatch && industryMatch && locationMatch;
+            });
+
+            renderJobs(filtered);
+        }
+
+        function renderJobs(jobs) {
+            const jobsGrid = document.getElementById("jobsGrid");
+            const countSpan = document.getElementById("openingsCount");
+
+            countSpan.textContent = `${jobs.length} Current Openings`;
+
+            if (!jobs || jobs.length === 0) {
+                jobsGrid.innerHTML = `<div style="text-align: center; padding: 2.5rem; background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text-muted);">No matching executive positions found. Try adjusting your filters or search keywords.</div>`;
+                return;
+            }
+
+            let rowsHtml = jobs.map(job => `
+                <div class="job-card-item">
+                    <div class="job-card-details">
+                        <div class="job-card-meta">
+                            <span>📍 ${job.Location || 'GCC / Global'}</span>
+                            <span>•</span>
+                            <span>${job.WorkModel || 'On-site'}</span>
+                        </div>
+                        <h3>${job.Title}</h3>
+                        <p>${job.Summary || job.Description || 'Confidential executive search assignment.'}</p>
+                    </div>
+                    <div>
+                        <a href="${job.ApplyLink || job['Apply Link'] || 'index.html#contact'}" class="btn">Inquire / Apply</a>
+                    </div>
+                </div>
+            `).join('');
+
+            rowsHtml += `
+                <div class="job-card-item" style="background: var(--bg-offwhite); border: 2px dashed var(--silver-grey);">
+                    <div class="job-card-details">
+                        <h3 style="margin-bottom: 0.25rem;">Confidential Leadership Search</h3>
+                        <p>Many of our senior mandates are managed discreetly without public posting. Submit your CV for confidential consideration.</p>
+                    </div>
+                    <div>
+                        <a href="index.html#contact" class="btn">Submit Profile</a>
+                    </div>
+                </div>
+            `;
+
+            jobsGrid.innerHTML = rowsHtml;
+        }
+    </script>
+</body>
+</html>

@@ -420,94 +420,188 @@
             box-shadow: var(--hover-shadow);
         }
 
-        /* --- COMPACT SINGLE-ROW JOB LIST STYLING --- */
-        .job-rows-container {
-            max-width: 1050px;
+        /* --- PORTAL CAREERS LAYOUT --- */
+        .careers-portal-wrapper {
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .careers-search-bar {
+            background: var(--royal-blue-dark);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .careers-search-input-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 0 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .careers-search-input-wrapper input {
+            width: 100%;
+            padding: 0.85rem 0.5rem;
+            border: none;
+            outline: none;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background: transparent;
+        }
+
+        .careers-search-btn {
+            background: var(--royal-blue-bright);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .careers-search-btn:hover {
+            background: var(--royal-blue);
+            transform: translateY(-1px);
+        }
+
+        .careers-main-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .careers-filters-sidebar {
+            background: var(--royal-blue-dark);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            color: white;
+            box-shadow: var(--card-shadow);
+        }
+
+        .careers-filters-sidebar h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            color: var(--silver-grey-light);
+        }
+
+        .filter-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--silver-grey);
+            background: white;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .careers-listings-area {
             display: flex;
             flex-direction: column;
             gap: 1.25rem;
         }
 
-        .job-row {
-            background: var(--bg-white);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.5rem 2rem;
+        .careers-listings-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 2rem;
-            box-shadow: var(--card-shadow);
-            transition: all 0.35s ease;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
         }
 
-        .job-row:hover {
+        .job-card-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.35s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .job-card-item:hover {
             border-color: var(--royal-blue-bright);
             box-shadow: var(--hover-shadow);
             transform: translateY(-2px);
         }
 
-        .job-info {
-            flex: 1;
+        .job-card-details h3 {
+            color: var(--royal-blue-dark);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
         }
 
-        .job-row-top {
+        .job-card-meta {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 0.3rem;
+            font-size: 0.85rem;
+            color: var(--silver-grey-dark);
+            margin-bottom: 0.6rem;
         }
 
-        .job-location-badge {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--royal-blue-bright);
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-            padding: 0.15rem 0.55rem;
-            border-radius: 4px;
-            text-transform: uppercase;
+        .job-card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
-        .job-info h3 {
-            color: var(--royal-blue-dark);
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-            font-weight: 700;
-        }
-
-        .job-info p {
+        .job-card-details p {
             color: var(--text-muted);
             font-size: 0.92rem;
             line-height: 1.4;
         }
 
-        .job-action {
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 768px) {
-            .job-row {
+        @media (max-width: 900px) {
+            .careers-main-layout {
+                grid-template-columns: 1fr;
+            }
+            .careers-search-bar {
+                flex-direction: column;
+            }
+            .job-card-item {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 1.25rem;
-                padding: 1.25rem;
             }
-            .job-action {
-                width: 100%;
-            }
-            .job-action .btn {
+            .job-card-item .btn {
                 width: 100%;
                 text-align: center;
             }
-        }
-
-        .jobs-status-loading {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            padding: 3rem 0;
         }
 
         /* Stats Section */
@@ -1014,34 +1108,6 @@
                     <span class="badge">Business Unit Heads</span>
                 </div>
             </div>
-            <div class="card">
-                <h3>Operations & Industrial</h3>
-                <div class="badge-container">
-                    <span class="badge">Plant Directors</span>
-                    <span class="badge">Operations Heads</span>
-                    <span class="badge">Supply Chain Leaders</span>
-                    <span class="badge">Procurement Heads</span>
-                    <span class="badge">Quality Leaders</span>
-                </div>
-            </div>
-            <div class="card" style="grid-column: span 2;">
-                <h3>Recent Executive Mandates</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <ul class="styled-list">
-                        <li>CTO – AI Platform</li>
-                        <li>VP Engineering – GCC</li>
-                        <li>Chief Architect</li>
-                        <li>Design Director – Luxury Development Firm (GCC)</li>
-                        <li>Country Manager – Luxury Retail Brand</li>
-                    </ul>
-                    <ul class="styled-list">
-                        <li>General Manager – Luxury Resort & Hospitality</li>
-                        <li>CFO – Manufacturing Group</li>
-                        <li>Head of Product – FinTech</li>
-                        <li>CRO – SaaS Company</li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1182,14 +1248,73 @@
         </div>
     </section>
 
-    <!-- SECTION 5: CURRENT OPENINGS (COMPACT SINGLE-ROW LIST) -->
+    <!-- SECTION 5: CURRENT OPENINGS (PORTAL LAYOUT WITH SEARCH & FILTERS) -->
     <section id="careers">
         <div class="section-title">
             <h2>Current Executive Opportunities</h2>
             <p>Explore active senior leadership mandates managed across India, Middle East (GCC), Europe, and APAC.</p>
         </div>
-        <div id="jobsGrid">
-            <div class="jobs-status-loading">Loading live opportunities from Google Sheets...</div>
+
+        <div class="careers-portal-wrapper">
+            <!-- Search Bar Header -->
+            <div class="careers-search-bar">
+                <div class="careers-search-input-wrapper">
+                    <svg style="width: 20px; height: 20px; color: var(--silver-grey-dark); flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <input type="text" id="jobSearchInput" placeholder="Job Title, Keyword, Specialization..." onkeyup="filterJobs()">
+                </div>
+                <button class="careers-search-btn" onclick="filterJobs()">
+                    Search Jobs
+                </button>
+            </div>
+
+            <div class="careers-main-layout">
+                <!-- Filters Sidebar -->
+                <div class="careers-filters-sidebar">
+                    <h3>Filters</h3>
+                    
+                    <div class="filter-group">
+                        <label for="workModelFilter">Work Model</label>
+                        <select id="workModelFilter" onchange="filterJobs()">
+                            <option value="">ALL</option>
+                            <option value="On-site">On-site</option>
+                            <option value="Hybrid">Hybrid</option>
+                            <option value="Remote">Remote</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="industryFilter">Industry / Sector</label>
+                        <select id="industryFilter" onchange="filterJobs()">
+                            <option value="">ALL</option>
+                            <option value="Technology">Technology & SaaS</option>
+                            <option value="Real Estate">Real Estate & Architecture</option>
+                            <option value="Luxury Retail">Luxury Retail & Hospitality</option>
+                            <option value="GCC">Global Capability Center (GCC)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="locationFilter">Region / Location</label>
+                        <select id="locationFilter" onchange="filterJobs()">
+                            <option value="">ALL</option>
+                            <option value="Saudi Arabia">Saudi Arabia / KSA</option>
+                            <option value="GCC">GCC / Middle East</option>
+                            <option value="India">India</option>
+                            <option value="Europe">Europe / APAC</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Listings Area -->
+                <div class="careers-listings-area">
+                    <div class="careers-listings-header">
+                        <span id="openingsCount">Loading openings...</span>
+                    </div>
+                    <div id="jobsGrid">
+                        <div style="text-align: center; color: var(--text-muted); padding: 3rem 0;">Loading live opportunities from Google Sheets...</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1288,6 +1413,8 @@
         // Published Google Sheet CSV endpoint
         const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS8fSuqnv0t8wlTAlKZZZoVa7BslSZgWskTVakzORGEtpCrgD-ec8WfMXlK--f3TQZMWF4rfMAe-6hg/pub?gid=0&single=true&output=csv";
 
+        let allFetchedJobs = [];
+
         document.addEventListener("DOMContentLoaded", function() {
             fetchJobsFromSheet();
         });
@@ -1298,64 +1425,89 @@
                 header: true,
                 skipEmptyLines: true,
                 complete: function(results) {
-                    renderJobs(results.data);
+                    allFetchedJobs = results.data.filter(j => j.Title && j.Title.trim() !== "");
+                    if (allFetchedJobs.length === 0) {
+                        allFetchedJobs = getFallbackJobs();
+                    }
+                    renderJobs(allFetchedJobs);
                 },
                 error: function(err) {
                     console.error("Error fetching Google Sheet CSV:", err);
-                    renderFallbackJobs();
+                    allFetchedJobs = getFallbackJobs();
+                    renderJobs(allFetchedJobs);
                 }
             });
         }
 
+        function getFallbackJobs() {
+            return [
+                { Title: "Director Architect", Location: "Riyadh, Saudi Arabia", Industry: "Real Estate", WorkModel: "On-site", Summary: "Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer.", ApplyLink: "#contact" },
+                { Title: "Sales Director – Luxury Furniture", Location: "Riyadh, Saudi Arabia", Industry: "Luxury Retail", WorkModel: "On-site", Summary: "Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC.", ApplyLink: "#contact" },
+                { Title: "VP of Engineering (GCC Head)", Location: "Bangalore / Hyderabad, India", Industry: "Technology", WorkModel: "Hybrid", Summary: "Scaling a 200+ core engineering center for a global enterprise SaaS platform.", ApplyLink: "#contact" }
+            ];
+        }
+
+        function filterJobs() {
+            const searchQuery = document.getElementById("jobSearchInput").value.toLowerCase();
+            const workModelVal = document.getElementById("workModelFilter").value;
+            const industryVal = document.getElementById("industryFilter").value;
+            const locationVal = document.getElementById("locationFilter").value;
+
+            const filtered = allFetchedJobs.filter(job => {
+                const titleMatch = (job.Title || "").toLowerCase().includes(searchQuery) || 
+                                   (job.Summary || job.Description || "").toLowerCase().includes(searchQuery);
+                const workMatch = !workModelVal || (job.WorkModel || "").toLowerCase().includes(workModelVal.toLowerCase());
+                const industryMatch = !industryVal || (job.Industry || "").toLowerCase().includes(industryVal.toLowerCase());
+                const locationMatch = !locationVal || (job.Location || "").toLowerCase().includes(locationVal.toLowerCase());
+
+                return titleMatch && workMatch && industryMatch && locationMatch;
+            });
+
+            renderJobs(filtered);
+        }
+
         function renderJobs(jobs) {
             const jobsGrid = document.getElementById("jobsGrid");
-            
-            // Filter out empty rows
-            const validJobs = jobs.filter(j => j.Title && j.Title.trim() !== "");
+            const countSpan = document.getElementById("openingsCount");
 
-            if (!validJobs || validJobs.length === 0) {
-                renderFallbackJobs();
+            countSpan.textContent = `${jobs.length} Current Openings`;
+
+            if (!jobs || jobs.length === 0) {
+                jobsGrid.innerHTML = `<div style="text-align: center; padding: 2.5rem; background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text-muted);">No matching executive positions found. Try adjusting your filters or search keywords.</div>`;
                 return;
             }
 
-            let rowsHtml = validJobs.map(job => `
-                <div class="job-row">
-                    <div class="job-info">
-                        <div class="job-row-top">
-                            <span class="job-location-badge">${job.Location || 'GCC / Global'}</span>
+            let rowsHtml = jobs.map(job => `
+                <div class="job-card-item">
+                    <div class="job-card-details">
+                        <div class="job-card-meta">
+                            <span><svg style="width: 14px; height: 14px;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>${job.Location || 'GCC / Global'}</span>
+                            <span>•</span>
+                            <span>${job.WorkModel || 'On-site'}</span>
                         </div>
                         <h3>${job.Title}</h3>
                         <p>${job.Summary || job.Description || 'Confidential executive search assignment.'}</p>
                     </div>
-                    <div class="job-action">
+                    <div>
                         <a href="${job.ApplyLink || job['Apply Link'] || '#contact'}" class="btn btn-sm">Inquire / Apply</a>
                     </div>
                 </div>
             `).join('');
 
-            // Append a discreet confidential submission row
+            // Add confidential discreet submission card at the bottom
             rowsHtml += `
-                <div class="job-row" style="background: var(--bg-offwhite); border: 2px dashed var(--silver-grey); text-align: center; justify-content: center;">
-                    <div class="job-info" style="text-align: center;">
+                <div class="job-card-item" style="background: var(--bg-offwhite); border: 2px dashed var(--silver-grey);">
+                    <div class="job-card-details">
                         <h3 style="margin-bottom: 0.25rem;">Confidential Leadership Search</h3>
-                        <p style="font-size: 0.9rem;">Many of our senior mandates are managed discreetly without public posting. Submit your CV for confidential consideration.</p>
+                        <p>Many of our senior mandates are managed discreetly without public posting. Submit your CV for confidential consideration.</p>
                     </div>
-                    <div class="job-action">
+                    <div>
                         <a href="#contact" class="btn btn-sm">Submit Profile</a>
                     </div>
                 </div>
             `;
 
-            jobsGrid.innerHTML = `<div class="job-rows-container">${rowsHtml}</div>`;
-        }
-
-        function renderFallbackJobs() {
-            const sampleJobs = [
-                { Title: "Director Architect", Location: "Riyadh, Saudi Arabia", Summary: "Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer.", ApplyLink: "#contact" },
-                { Title: "Sales Director – Luxury Furniture", Location: "Riyadh, Saudi Arabia", Summary: "Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC.", ApplyLink: "#contact" },
-                { Title: "VP of Engineering (GCC Head)", Location: "Bangalore / Hyderabad, India", Summary: "Scaling a 200+ core engineering center for a global enterprise SaaS platform.", ApplyLink: "#contact" }
-            ];
-            renderJobs(sampleJobs);
+            jobsGrid.innerHTML = rowsHtml;
         }
     </script>
 </body>
