@@ -147,7 +147,7 @@
         .page-banner p {
             font-size: 1.1rem;
             color: var(--silver-grey-light);
-            max-width: 700px;
+            max-width: 780px;
             margin: 0 auto;
         }
 
@@ -343,6 +343,76 @@
             .job-card-item .btn { width: 100%; text-align: center; }
         }
     </style>
+
+    <!-- Google Jobs Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@graph": [
+        {
+          "@type": "JobPosting",
+          "title": "Director Architect",
+          "description": "Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer in Riyadh, Saudi Arabia.",
+          "datePosted": "2026-11-01",
+          "employmentType": "FULL_TIME",
+          "hiringOrganization": {
+            "@type": "Organization",
+            "name": "Aditya HR Consulting",
+            "sameAs": "https://adityaconsulting.net"
+          },
+          "jobLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Riyadh",
+              "addressCountry": "SA"
+            }
+          }
+        },
+        {
+          "@type": "JobPosting",
+          "title": "Sales Director – Luxury Furniture",
+          "description": "Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC.",
+          "datePosted": "2026-11-01",
+          "employmentType": "FULL_TIME",
+          "hiringOrganization": {
+            "@type": "Organization",
+            "name": "Aditya HR Consulting",
+            "sameAs": "https://adityaconsulting.net"
+          },
+          "jobLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Riyadh",
+              "addressCountry": "SA"
+            }
+          }
+        },
+        {
+          "@type": "JobPosting",
+          "title": "VP of Engineering (GCC Head)",
+          "description": "Scaling a 200+ core engineering center for a global enterprise SaaS platform in Bangalore / Hyderabad, India.",
+          "datePosted": "2026-11-01",
+          "employmentType": "FULL_TIME",
+          "hiringOrganization": {
+            "@type": "Organization",
+            "name": "Aditya HR Consulting",
+            "sameAs": "https://adityaconsulting.net"
+          },
+          "jobLocation": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bangalore",
+              "addressRegion": "Karnataka",
+              "addressCountry": "IN"
+            }
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -368,7 +438,7 @@
     <!-- Page Banner -->
     <div class="page-banner">
         <h1>Current Executive Mandates</h1>
-        <p>Explore active executive search opportunities managed across India, Middle East (GCC), APAC, and Europe.</p>
+        <p>Explore active executive search opportunities managed across India, Middle East (GCC), APAC, and Europe. We partner with high-growth enterprises and family offices to place C-suite and senior leadership talent—including CEOs, CFOs, CTOs, Country Heads, Chief Architects, and General Managers—across Technology, Real Estate, Luxury Retail, and Global Capability Centers (GCCs).</p>
     </div>
 
     <!-- Main Content Portal -->
@@ -424,15 +494,67 @@
                 <!-- Listings Area -->
                 <div class="careers-listings-area">
                     <div class="careers-listings-header">
-                        <span id="openingsCount">Loading openings...</span>
+                        <span id="openingsCount">3 Current Openings</span>
                     </div>
                     <div id="jobsGrid">
-                        <div style="text-align: center; color: var(--text-muted); padding: 3rem 0;">Loading live opportunities from Google Sheets...</div>
+                        <div class="job-card-item">
+                            <div class="job-card-details">
+                                <div class="job-card-meta">
+                                    <span>📍 Riyadh, Saudi Arabia</span>
+                                    <span>•</span>
+                                    <span>On-site</span>
+                                </div>
+                                <h3>Director Architect</h3>
+                                <p>Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer.</p>
+                            </div>
+                            <div>
+                                <a href="mailto:info@adityaconsulting.net?subject=Application%20for%20Director%20Architect" class="btn">Inquire / Apply</a>
+                            </div>
+                        </div>
+
+                        <div class="job-card-item">
+                            <div class="job-card-details">
+                                <div class="job-card-meta">
+                                    <span>📍 Riyadh, Saudi Arabia</span>
+                                    <span>•</span>
+                                    <span>On-site</span>
+                                </div>
+                                <h3>Sales Director – Luxury Furniture</h3>
+                                <p>Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC.</p>
+                            </div>
+                            <div>
+                                <a href="mailto:info@adityaconsulting.net?subject=Application%20for%20Sales%20Director%20%E2%80%93%20Luxury%20Furniture" class="btn">Inquire / Apply</a>
+                            </div>
+                        </div>
+
+                        <div class="job-card-item">
+                            <div class="job-card-details">
+                                <div class="job-card-meta">
+                                    <span>📍 Bangalore / Hyderabad, India</span>
+                                    <span>•</span>
+                                    <span>Hybrid</span>
+                                </div>
+                                <h3>VP of Engineering (GCC Head)</h3>
+                                <p>Scaling a 200+ core engineering center for a global enterprise SaaS platform.</p>
+                            </div>
+                            <div>
+                                <a href="mailto:info@adityaconsulting.net?subject=Application%20for%20VP%20of%20Engineering%20(GCC%20Head)" class="btn">Inquire / Apply</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Confidential Executive Network CTA -->
+    <section style="background-color: #f8fafc; text-align: center; padding: 3.5rem 6%; border-top: 1px solid #e2e8f0;">
+        <div style="max-width: 760px; margin: 0 auto;">
+            <h3 style="color: #0f2b5c; font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem;">Looking for Confidential Leadership Opportunities?</h3>
+            <p style="color: #475569; font-size: 1rem; margin-bottom: 1.5rem;">Don't see a relevant mandate? Over 70% of our C-suite, Board, and Country Head searches are strictly confidential and never listed publicly. Submit your executive profile to our private leadership network for discreet consideration.</p>
+            <a href="mailto:info@adityaconsulting.net?subject=Confidential%20Executive%20Profile%20Submission" style="display: inline-block; padding: 0.85rem 1.75rem; background-color: #2563eb; color: #ffffff; font-weight: 600; text-decoration: none; border-radius: 8px;">Submit Confidential Profile</a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -472,9 +594,9 @@
 
         function getFallbackJobs() {
             return [
-                { Title: "Director Architect", Location: "Riyadh, Saudi Arabia", Industry: "Real Estate", WorkModel: "On-site", Summary: "Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer.", ApplyLink: "index.html#contact" },
-                { Title: "Sales Director – Luxury Furniture", Location: "Riyadh, Saudi Arabia", Industry: "Luxury Retail", WorkModel: "On-site", Summary: "Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC.", ApplyLink: "index.html#contact" },
-                { Title: "VP of Engineering (GCC Head)", Location: "Bangalore / Hyderabad, India", Industry: "Technology", WorkModel: "Hybrid", Summary: "Scaling a 200+ core engineering center for a global enterprise SaaS platform.", ApplyLink: "index.html#contact" }
+                { Title: "Director Architect", Location: "Riyadh, Saudi Arabia", Industry: "Real Estate", WorkModel: "On-site", Summary: "Leading large-scale master planning and iconic architectural developments for a top luxury real estate developer.", ApplyLink: "" },
+                { Title: "Sales Director – Luxury Furniture", Location: "Riyadh, Saudi Arabia", Industry: "Luxury Retail", WorkModel: "On-site", Summary: "Driving commercial expansion, high-net-worth client acquisition, and flagship showroom operations across GCC.", ApplyLink: "" },
+                { Title: "VP of Engineering (GCC Head)", Location: "Bangalore / Hyderabad, India", Industry: "Technology", WorkModel: "Hybrid", Summary: "Scaling a 200+ core engineering center for a global enterprise SaaS platform.", ApplyLink: "" }
             ];
         }
 
@@ -520,22 +642,10 @@
                         <p>${job.Summary || job.Description || 'Confidential executive search assignment.'}</p>
                     </div>
                     <div>
-                        <a href="${job.ApplyLink || job['Apply Link'] || 'index.html#contact'}" class="btn">Inquire / Apply</a>
+                        <a href="mailto:info@adityaconsulting.net?subject=${encodeURIComponent('Executive Mandate Inquiry: ' + (job.Title || 'Leadership Opportunity'))}" class="btn">Inquire / Apply</a>
                     </div>
                 </div>
             `).join('');
-
-            rowsHtml += `
-                <div class="job-card-item" style="background: var(--bg-offwhite); border: 2px dashed var(--silver-grey);">
-                    <div class="job-card-details">
-                        <h3 style="margin-bottom: 0.25rem;">Confidential Leadership Search</h3>
-                        <p>Many of our senior mandates are managed discreetly without public posting. Submit your CV for confidential consideration.</p>
-                    </div>
-                    <div>
-                        <a href="index.html#contact" class="btn">Submit Profile</a>
-                    </div>
-                </div>
-            `;
 
             jobsGrid.innerHTML = rowsHtml;
         }
