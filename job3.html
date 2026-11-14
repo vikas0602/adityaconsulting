@@ -211,8 +211,13 @@ function googleTranslateElementInit() {
             return;
         }
 
-        document.title = `${job.Title} - Aditya HR Consulting`;
-        const subject = encodeURIComponent(`Executive Application: ${job.Title} (${job.Location || 'Global'})`);
+                document.title = `${job.Title} - Aditya HR Consulting`;
+        
+        const jobTitle = job.Title || 'Leadership Opportunity';
+        const subject = `Application for ${jobTitle}`;
+        const body = `Dear Recruitment Team,\n\nI am writing to express my strong interest in the ${jobTitle} position. With a proven track record of driving high-ticket sales strategy, leading luxury real estate portfolios, and managing end-to-end sales cycles for premium developments, I am eager to bring my expertise to your organization.\n\nPlease find my detailed resume attached for your review. To assist with the initial evaluation, here are my current professional details:\n- Current Salary:\n- Expected Salary:\n- Notice Period:\n- Current Location:\n\nI look forward to the opportunity to discuss how my background and market leadership align with your upcoming developments.`;
+        
+        const mailtoHref = `mailto:info@adityaconsulting.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
         container.innerHTML = `
             <div class="job-badge-row">
@@ -221,9 +226,9 @@ function googleTranslateElementInit() {
                 <span class="badge">💼 ${job.Industry || 'Executive Search'}</span>
             </div>
             <h1>${job.Title}</h1>
-            <div class="job-description">${job.Summary || job.Description || 'Confidential leadership search assignment.'}</div>
+            <div class="job-description">${job.Summary || job.Description || 'Confidential executive search assignment.'}</div>
             <div class="action-bar">
-                <a href="mailto:vikas@adityaconsulting.net?subject=${subject}" class="btn-apply">Apply / Inquire Confidentially</a>
+                <a href="${mailtoHref}" class="btn-apply">Apply / Inquire Confidentially</a>
                 <button class="btn-copy" onclick="copyPageLink(this)">Copy Shareable Link</button>
             </div>
         `;
