@@ -145,6 +145,40 @@
 </head>
 <body>
 
+    <!-- Automatic Local Browser Language Sync (Clean Header - No Manual Dropdown) -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<script type="text/javascript">
+    (function autoDetectLanguageOnly() {
+        const autoLanguages = ['ar', 'fr', 'de', 'es'];
+        const detectedLang = (navigator.language || navigator.userLanguage || 'en').slice(0, 2).toLowerCase();
+
+        if (autoLanguages.includes(detectedLang) && detectedLang !== 'en') {
+            const cookieValue = `/en/${detectedLang}`;
+            if (!document.cookie.includes(`googtrans=${cookieValue}`)) {
+                document.cookie = `googtrans=${cookieValue}; path=/`;
+                if (window.location.hostname && window.location.hostname !== 'localhost') {
+                    document.cookie = `googtrans=${cookieValue}; path=/; domain=.${window.location.hostname}`;
+                }
+            }
+        } else {
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            if (window.location.hostname && window.location.hostname !== 'localhost') {
+                document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname}`;
+            }
+        }
+    })();
+
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'ar,en,fr,de,es',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
 <header>
     <a href="index.html" class="logo-container">
         <img src="logo.png" alt="Aditya HR Consulting Logo" class="logo-img">
@@ -175,14 +209,6 @@
     <p>Copyright &copy; 2026 Aditya HR Consulting. All Rights Reserved.</p>
 </footer>
 
-<!-- Google Translate & Tidio -->
-<div id="google_translate_element" style="text-align: center; padding: 15px; background: #f8fafc; border-top: 1px solid #e2e8f0;"></div>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'ar,en,fr,de,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="//code.tidio.co/uuhjrxehkznzn8o6mbf0hukmbmzk4m7f.js" async></script>
 
 <!-- PapaParse to pull Row 5 (Index 4) from Google Sheet -->
