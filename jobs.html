@@ -417,35 +417,40 @@
 </head>
 <body>
 
-    <!-- Top Language Bar with Auto-Local Language Sync -->
-    <div style="background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 6px 6%; display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-size: 0.85rem;">
-        <span style="color: #475569; font-weight: 600;">🌐 Language:</span>
-        <div id="google_translate_element"></div>
-    </div>
+    <!-- Automatic Local Browser Language Sync (Clean Header - No Manual Dropdown) -->
+<div id="google_translate_element" style="display: none;"></div>
 
-    <script type="text/javascript">
-        // Auto-detect visitor's local browser language on first visit
-        (function autoSyncLocalLanguage() {
-            const supportedLangs = ['ar', 'fr', 'de', 'es']; // Languages to auto-translate into
-            const userLang = (navigator.language || navigator.userLanguage || 'en').slice(0, 2).toLowerCase();
+<script type="text/javascript">
+    (function autoDetectLanguageOnly() {
+        const autoLanguages = ['ar', 'fr', 'de', 'es']; // Auto-translate only for these local languages
+        const detectedLang = (navigator.language || navigator.userLanguage || 'en').slice(0, 2).toLowerCase();
 
-            // Only set if user hasn't already chosen a language and their local language is in your supported list
-            if (supportedLangs.includes(userLang) && !document.cookie.includes('googtrans=')) {
-                document.cookie = `googtrans=/en/${userLang}; path=/`;
-                document.cookie = `googtrans=/en/${userLang}; path=/; domain=.${window.location.hostname}`;
+        if (autoLanguages.includes(detectedLang) && detectedLang !== 'en') {
+            const cookieValue = `/en/${detectedLang}`;
+            if (!document.cookie.includes(`googtrans=${cookieValue}`)) {
+                document.cookie = `googtrans=${cookieValue}; path=/`;
+                if (window.location.hostname && window.location.hostname !== 'localhost') {
+                    document.cookie = `googtrans=${cookieValue}; path=/; domain=.${window.location.hostname}`;
+                }
             }
-        })();
-
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'ar,en,fr,de,es',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
+        } else {
+            // Clear any stale translation cookie so English browsers never show the "Translated into: English" bar
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            if (window.location.hostname && window.location.hostname !== 'localhost') {
+                document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname}`;
+            }
         }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    })();
+
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'ar,en,fr,de,es',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
     <!-- Header Navigation -->
     <header>
