@@ -444,12 +444,6 @@
             box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
         }
 
-        .btn-sm {
-            padding: 0.65rem 1.35rem;
-            font-size: 0.88rem;
-            white-space: nowrap;
-        }
-
         /* Section Layouts & Spacing */
         section {
             padding: 7rem 6%;
@@ -696,13 +690,13 @@
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
         }
 
-        /* Contact Box & Embedded Google Form Styles */
+        /* Contact Box & Form Styles */
         .contact-box {
             background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 3.5rem;
-            max-width: 980px;
+            max-width: 950px;
             margin: 0 auto;
             box-shadow: var(--card-shadow);
             transition: var(--transition-smooth);
@@ -710,21 +704,6 @@
 
         .contact-box:hover {
             box-shadow: var(--hover-shadow);
-        }
-
-        .form-toolbar {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1rem;
-        }
-
-        .google-form-frame {
-            width: 100%;
-            min-height: 780px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            background: var(--bg-white);
-            display: block;
         }
 
         .contact-info {
@@ -766,9 +745,6 @@
         @media (max-width: 640px) {
             .contact-box {
                 padding: 1.75rem;
-            }
-            .google-form-frame {
-                min-height: 920px;
             }
         }
 
@@ -859,7 +835,7 @@
 
     <!-- Header Navigation -->
     <header>
-        <a href="#" class="logo-container">
+        <a href="index.html" class="logo-container">
             <img src="logo.png?v=2" alt="Aditya HR Consulting Logo" class="logo-img">
             <div class="logo-text">
                 <span class="logo-title">Aditya HR Consulting</span>
@@ -949,20 +925,20 @@
         <h3 class="subsection-heading">By the Numbers</h3>
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="number">20+</div>
-                <div class="label">Years of Executive Search Experience</div>
+                <div class="number">22+</div>
+                <div class="label">Years of Executive Search &amp; Leadership Advisory Pedigree</div>
             </div>
             <div class="stat-card">
-                <div class="number">Multi</div>
-                <div class="label">Industry Leadership Search Capability</div>
+                <div class="number">4</div>
+                <div class="label">Global Corridors: India, GCC, Europe &amp; APAC</div>
             </div>
             <div class="stat-card">
-                <div class="number">Specialist</div>
-                <div class="label">Technology, Engineering, Luxury Retail & Digital Leadership Focus</div>
+                <div class="number">C-Suite</div>
+                <div class="label">Board, CXO, VP &amp; Country Head Search Focus</div>
             </div>
             <div class="stat-card">
                 <div class="number">100%</div>
-                <div class="label">Confidential Search Engagements</div>
+                <div class="label">Partner-Led &amp; Strictly Confidential Mandates</div>
             </div>
         </div>
     </section>
@@ -1156,6 +1132,34 @@
         </div>
     </section>
 
+    <!-- SELECTED LEADERSHIP PLACEMENTS (ANONYMIZED TRACK RECORD) -->
+    <section id="track-record" class="bg-light" style="padding-bottom: 3rem;">
+        <div class="section-title">
+            <h2>Selected Leadership Placements</h2>
+            <p>Representative, anonymized executive mandates executed with strict client confidentiality across our core corridors.</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <span class="badge" style="align-self: flex-start; margin-bottom: 1rem;">India GCC &amp; Technology</span>
+                <h3>VP of Engineering &amp; India Site Leader</h3>
+                <p>Partnered with a global FinTech enterprise establishing its India Global Capability Center (GCC) to appoint the founding engineering and site leadership team.</p>
+            </div>
+
+            <div class="card">
+                <span class="badge" style="align-self: flex-start; margin-bottom: 1rem;">Middle East (GCC) Expansion</span>
+                <h3>Senior Development &amp; Design Leadership</h3>
+                <p>Executed a confidential cross-border search for a premier Real Estate &amp; Architectural organization scaling flagship projects across Saudi Arabia and the UAE.</p>
+            </div>
+
+            <div class="card">
+                <span class="badge" style="align-self: flex-start; margin-bottom: 1rem;">Luxury Hospitality &amp; Retail</span>
+                <h3>Regional Operations &amp; Country Head</h3>
+                <p>Identified and appointed senior commercial and retail leadership for an international luxury brand expanding across key metropolitan hubs in India and the Gulf.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- SECTION 4: SEARCH PROCESS & LEADERSHIP INTELLIGENCE -->
     <section id="process" class="bg-light">
         <div class="section-title">
@@ -1295,34 +1299,75 @@
         </div>
     </section>
 
-    <!-- SECTION 6: CONTACT US & LEADERSHIP ADVISORY -->
+    <!-- SECTION 6: MANAGING PARTNER & CONFIDENTIAL MANDATE INQUIRY -->
     <section id="contact" class="bg-light">
         <div class="contact-box">
-            <div class="section-title" style="margin-bottom: 1.5rem; text-align: center;">
-                <h2>Build Your Leadership Team With Confidence</h2>
-                <p>Connect with our executive search partners to discuss your leadership requirements or career transition in strict confidence.</p>
+
+            <!-- Managing Partner Authority Block -->
+            <div style="display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; background: var(--bg-offwhite); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.75rem; margin-bottom: 2.5rem;">
+                <img src="founder.jpg" alt="Vikass Singh - Founder &amp; Executive Search Partner" onerror="this.style.display='none'" style="width: 92px; height: 92px; border-radius: 50%; object-fit: cover; border: 3px solid var(--royal-blue-bright); flex-shrink: 0;">
+                <div style="flex: 1; min-width: 240px;">
+                    <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--royal-blue-bright);">Partner-Led Execution</span>
+                    <h3 style="color: var(--royal-blue-dark); font-size: 1.35rem; font-weight: 800; margin: 0.2rem 0 0.4rem;">Vikass Singh — Founder &amp; Executive Search Partner</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.65rem;">
+                        With over 22 years of retained executive search and leadership advisory pedigree, Vikass leads confidential C-suite, board, and cross-border mandates across India, the Middle East (GCC), Europe, and APAC.
+                    </p>
+                    <a href="https://www.linkedin.com/in/vikassingh6/" target="_blank" rel="noopener noreferrer" style="color: var(--royal-blue); font-weight: 700; font-size: 0.9rem; text-decoration: none;">
+                        Connect with Vikass on LinkedIn &rarr;
+                    </a>
+                </div>
             </div>
 
-            <div class="form-toolbar">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeN8b8gK1rLPT88KVm0SZDpj4GKsD7prX8tsQL-IGYj8gGG2w/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Open Form in New Tab</a>
+            <div class="section-title" style="margin-bottom: 2rem; text-align: center;">
+                <h2>Discuss a Confidential Leadership Mandate</h2>
+                <p>Share a brief overview of your leadership requirement below. Every mandate inquiry is reviewed directly by our Managing Partner in strict confidence.</p>
             </div>
 
-            <!-- Embedded Google Form (Responses linked to Google Sheet) -->
-            <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSeN8b8gK1rLPT88KVm0SZDpj4GKsD7prX8tsQL-IGYj8gGG2w/viewform?embedded=true"
-                class="google-form-frame"
-                title="Aditya HR Consulting Mandate & Inquiry Form"
-                loading="lazy">
-                Loading form…
-            </iframe>
+            <!-- Fast Native B2B Client Mandate Form -->
+            <form action="https://formspree.io/f/mdekrnzd" method="POST" style="max-width: 780px; margin: 0 auto 2rem auto;">
+                <div class="grid-2" style="gap: 1.25rem; margin-bottom: 1.25rem;">
+                    <div>
+                        <label for="fullName" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Your Name <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="fullName" name="fullName" placeholder="e.g., Arjun Mehta" required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem;">
+                    </div>
+                    <div>
+                        <label for="email" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Work Email <span style="color: #dc2626;">*</span></label>
+                        <input type="email" id="email" name="_replyto" placeholder="name@company.com" required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem;">
+                    </div>
+                    <div>
+                        <label for="company" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Organization &amp; Role to Hire <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="company" name="company_and_role" placeholder="e.g., FinTech GCC — VP Engineering" required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem;">
+                    </div>
+                    <div>
+                        <label for="region" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Target Corridor / Inquiry Type <span style="color: #dc2626;">*</span></label>
+                        <select id="region" name="corridor_and_type" required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem; background: var(--bg-white); color: var(--text-dark);">
+                            <option value="India Leadership / GCC Mandate">India Leadership / GCC Setup Mandate</option>
+                            <option value="Middle East (Saudi Arabia / UAE / GCC)">Middle East (Saudi Arabia / UAE / GCC)</option>
+                            <option value="Europe Cross-Border Mandate">Europe Cross-Border Mandate</option>
+                            <option value="APAC Cross-Border Mandate">APAC Cross-Border Mandate</option>
+                            <option value="Board / Market Mapping / Advisory">Board Search / Talent Mapping / Advisory</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="message" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Mandate Brief &amp; Timeline <span style="color: #dc2626;">*</span></label>
+                    <textarea id="message" name="message" rows="4" placeholder="Briefly outline the leadership mandate, key competencies, or target market..." required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem; resize: vertical;"></textarea>
+                </div>
+
+                <div style="text-align: center;">
+                    <button type="submit" class="btn" style="border: none; cursor: pointer; padding: 0.95rem 2.75rem; font-size: 1rem;">Request a Confidential Mandate Consultation</button>
+                    <p style="margin-top: 0.85rem; font-size: 0.85rem; color: var(--text-muted);">
+                        Senior executive exploring leadership opportunities? <a href="jobs.html" style="color: var(--royal-blue); font-weight: 600; text-decoration: none;">View open mandates &amp; submit your profile here &rarr;</a>
+                    </p>
+                </div>
+            </form>
 
             <!-- Direct Contact Info Footer -->
             <div class="contact-info">
                 <div class="contact-item">
                     <h4>Global Footprint</h4>
-                    <p style="color: var(--text-muted);">
-                        India | Middle East (GCC) | Europe | APAC
-                    </p>
+                    <p style="color: var(--text-muted);">India | Middle East (GCC) | Europe | APAC</p>
                 </div>
                 <div class="contact-item">
                     <h4>Email Us</h4>
