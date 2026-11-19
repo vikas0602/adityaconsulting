@@ -444,6 +444,12 @@
             box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
         }
 
+        .btn-sm {
+            padding: 0.65rem 1.35rem;
+            font-size: 0.88rem;
+            white-space: nowrap;
+        }
+
         /* Section Layouts & Spacing */
         section {
             padding: 7rem 6%;
@@ -690,26 +696,35 @@
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
         }
 
-        /* Contact CTA Box */
+        /* Contact Box & Embedded Google Form Styles */
         .contact-box {
             background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 3.5rem;
-            max-width: 950px;
+            max-width: 980px;
             margin: 0 auto;
             box-shadow: var(--card-shadow);
             transition: var(--transition-smooth);
         }
 
         .contact-box:hover {
-            transform: scale(1.01);
             box-shadow: var(--hover-shadow);
         }
 
-        .contact-cta-actions {
-            text-align: center;
-            margin-bottom: 2.5rem;
+        .form-toolbar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .google-form-frame {
+            width: 100%;
+            min-height: 780px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--bg-white);
+            display: block;
         }
 
         .contact-info {
@@ -746,6 +761,15 @@
         .linkedin-icon {
             fill: currentColor;
             vertical-align: middle;
+        }
+
+        @media (max-width: 640px) {
+            .contact-box {
+                padding: 1.75rem;
+            }
+            .google-form-frame {
+                min-height: 920px;
+            }
         }
 
         /* Cookie Notice Banner */
@@ -835,7 +859,7 @@
 
     <!-- Header Navigation -->
     <header>
-        <a href="index.html" class="logo-container">
+        <a href="#" class="logo-container">
             <img src="logo.png?v=2" alt="Aditya HR Consulting Logo" class="logo-img">
             <div class="logo-text">
                 <span class="logo-title">Aditya HR Consulting</span>
@@ -849,7 +873,7 @@
             <a href="#process">Process</a>
             <a href="#markets">Corridors</a>
             <a href="jobs.html">Jobs</a>
-            <a href="contact.html" class="nav-cta">Contact</a>
+            <a href="#contact" class="nav-cta">Contact</a>
         </nav>
     </header>
 
@@ -865,7 +889,7 @@
 
         <p>We partner with founders, boards, investors, CHROs, and enterprises to identify transformational leaders through confidential, research-driven executive search.</p>
         <div class="hero-buttons">
-            <a href="contact.html" class="btn">Connect With Us</a>
+            <a href="#contact" class="btn">Connect With Us</a>
             <a href="#solutions" class="btn btn-outline">Our Solutions</a>
         </div>
     </section>
@@ -1274,14 +1298,23 @@
     <!-- SECTION 6: CONTACT US & LEADERSHIP ADVISORY -->
     <section id="contact" class="bg-light">
         <div class="contact-box">
-            <div class="section-title" style="margin-bottom: 1.75rem; text-align: center;">
+            <div class="section-title" style="margin-bottom: 1.5rem; text-align: center;">
                 <h2>Build Your Leadership Team With Confidence</h2>
-                <p>Connect with our executive search partners on our dedicated inquiry page to discuss leadership mandates, GCC hiring, or executive career opportunities in strict confidence.</p>
+                <p>Connect with our executive search partners to discuss your leadership requirements or career transition in strict confidence.</p>
             </div>
 
-            <div class="contact-cta-actions">
-                <a href="contact.html" class="btn">Go to Mandate &amp; Inquiry Form</a>
+            <div class="form-toolbar">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeN8b8gK1rLPT88KVm0SZDpj4GKsD7prX8tsQL-IGYj8gGG2w/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Open Form in New Tab</a>
             </div>
+
+            <!-- Embedded Google Form (Responses linked to Google Sheet) -->
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeN8b8gK1rLPT88KVm0SZDpj4GKsD7prX8tsQL-IGYj8gGG2w/viewform?embedded=true"
+                class="google-form-frame"
+                title="Aditya HR Consulting Mandate & Inquiry Form"
+                loading="lazy">
+                Loading form…
+            </iframe>
 
             <!-- Direct Contact Info Footer -->
             <div class="contact-info">
