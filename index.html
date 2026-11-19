@@ -288,11 +288,6 @@
             50% { transform: translateY(-6px); }
         }
 
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.2); }
-            50% { box-shadow: 0 0 28px rgba(37, 99, 235, 0.5); }
-        }
-
         /* Hero Section */
         .hero {
             position: relative;
@@ -447,12 +442,6 @@
             border-color: white;
             transform: scale(1.05) translateY(-3px);
             box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
-        }
-
-        .btn-sm {
-            padding: 0.65rem 1.5rem;
-            font-size: 0.88rem;
-            white-space: nowrap;
         }
 
         /* Section Layouts & Spacing */
@@ -657,24 +646,6 @@
             color: var(--silver-grey-light);
         }
 
-        /* Lists */
-        .styled-list { list-style: none; }
-        .styled-list li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-            color: var(--text-dark);
-            transition: transform 0.25s ease;
-        }
-        .styled-list li:hover { transform: translateX(8px); }
-        .styled-list li::before {
-            content: "✓";
-            color: var(--royal-blue-bright);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
         /* Badges */
         .badge-container { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem; }
         .badge {
@@ -719,7 +690,7 @@
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
         }
 
-        /* Contact Box & Form Styles */
+        /* Contact CTA Box */
         .contact-box {
             background: var(--bg-white);
             border: 1px solid var(--border);
@@ -736,73 +707,9 @@
             box-shadow: var(--hover-shadow);
         }
 
-        .contact-form-wrapper {
-            width: 100%;
-            margin: 0 auto 2.5rem auto;
-        }
-
-        .contact-form-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 1.2rem;
-        }
-
-        .contact-form-table tr {
-            vertical-align: top;
-        }
-
-        .form-label {
-            width: 25%;
-            padding-top: 0.75rem;
-            padding-right: 1rem;
-            font-weight: 700;
-            color: var(--royal-blue-dark);
-            font-size: 0.95rem;
-            text-align: left;
-        }
-
-        .required {
-            color: #dc2626;
-        }
-
-        .form-input {
-            width: 75%;
-            text-align: left;
-        }
-
-        .form-input input[type="text"],
-        .form-input input[type="email"],
-        .form-input textarea {
-            width: 100%;
-            padding: 0.9rem 1.1rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            background-color: var(--bg-white);
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-            outline: none;
-        }
-
-        .form-input input[type="text"]:focus,
-        .form-input input[type="email"]:focus,
-        .form-input textarea:focus {
-            border-color: var(--royal-blue-bright);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
-            transform: translateY(-1px);
-        }
-
-        .form-input textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            border: none;
-            cursor: pointer;
-            padding: 0.95rem 3.2rem;
-            font-size: 1rem;
-            animation: pulseGlow 3s infinite ease-in-out;
+        .contact-cta-actions {
+            text-align: center;
+            margin-bottom: 2.5rem;
         }
 
         .contact-info {
@@ -839,25 +746,6 @@
         .linkedin-icon {
             fill: currentColor;
             vertical-align: middle;
-        }
-
-        @media (max-width: 640px) {
-            .contact-form-table, 
-            .contact-form-table tbody, 
-            .contact-form-table tr, 
-            .contact-form-table td {
-                display: block;
-                width: 100%;
-            }
-
-            .contact-form-table tr {
-                margin-bottom: 0.75rem;
-            }
-
-            .form-label {
-                padding-top: 0;
-                padding-bottom: 0.35rem;
-            }
         }
 
         /* Cookie Notice Banner */
@@ -947,7 +835,7 @@
 
     <!-- Header Navigation -->
     <header>
-        <a href="#" class="logo-container">
+        <a href="index.html" class="logo-container">
             <img src="logo.png?v=2" alt="Aditya HR Consulting Logo" class="logo-img">
             <div class="logo-text">
                 <span class="logo-title">Aditya HR Consulting</span>
@@ -961,7 +849,7 @@
             <a href="#process">Process</a>
             <a href="#markets">Corridors</a>
             <a href="jobs.html">Jobs</a>
-            <a href="#contact" class="nav-cta">Contact</a>
+            <a href="contact.html" class="nav-cta">Contact</a>
         </nav>
     </header>
 
@@ -977,7 +865,7 @@
 
         <p>We partner with founders, boards, investors, CHROs, and enterprises to identify transformational leaders through confidential, research-driven executive search.</p>
         <div class="hero-buttons">
-            <a href="#contact" class="btn">Connect With Us</a>
+            <a href="contact.html" class="btn">Connect With Us</a>
             <a href="#solutions" class="btn btn-outline">Our Solutions</a>
         </div>
     </section>
@@ -1386,47 +1274,14 @@
     <!-- SECTION 6: CONTACT US & LEADERSHIP ADVISORY -->
     <section id="contact" class="bg-light">
         <div class="contact-box">
-            <div class="section-title" style="margin-bottom: 2rem; text-align: center;">
+            <div class="section-title" style="margin-bottom: 1.75rem; text-align: center;">
                 <h2>Build Your Leadership Team With Confidence</h2>
-                <p>Connect with our executive search partners to discuss your leadership requirements or career transition.</p>
+                <p>Connect with our executive search partners on our dedicated inquiry page to discuss leadership mandates, GCC hiring, or executive career opportunities in strict confidence.</p>
             </div>
 
-            <!-- Blank Contact Form -->
-            <form action="https://formspree.io/f/mdekrnzd" method="POST" class="contact-form-wrapper">
-                <table class="contact-form-table">
-                    <tbody>
-                        <tr>
-                            <td class="form-label">
-                                <label for="fullName">Full Name <span class="required">*</span></label>
-                            </td>
-                            <td class="form-input">
-                                <input type="text" id="fullName" name="fullName" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="form-label">
-                                <label for="email">Email ID <span class="required">*</span></label>
-                            </td>
-                            <td class="form-input">
-                                <input type="email" id="email" name="_replyto" required>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="form-label">
-                                <label for="message">Message / Mandate Inquiry <span class="required">*</span></label>
-                            </td>
-                            <td class="form-input">
-                                <textarea id="message" name="message" rows="4" required></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="text-align: center; padding-top: 1rem;">
-                                <button type="submit" class="btn submit-btn">Submit Inquiry</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+            <div class="contact-cta-actions">
+                <a href="contact.html" class="btn">Go to Mandate &amp; Inquiry Form</a>
+            </div>
 
             <!-- Direct Contact Info Footer -->
             <div class="contact-info">
