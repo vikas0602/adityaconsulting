@@ -58,19 +58,18 @@
             scroll-behavior: smooth;
         }
 
-        html, body {
+        html {
             max-width: 100%;
-            overflow-x: hidden;
         }
 
         body {
+            max-width: 100%;
+            overflow-x: clip;
             color: var(--text-dark);
             line-height: 1.6;
             background-color: var(--bg-white);
             font-size: var(--fs-body);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            padding-top: 86px;
         }
 
         header, main, section, footer, .careers-portal-wrapper {
