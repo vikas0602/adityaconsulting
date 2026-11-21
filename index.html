@@ -132,6 +132,18 @@
             --card-shadow: 0 10px 30px -5px rgba(15, 43, 92, 0.05);
             --hover-shadow: 0 20px 45px -10px rgba(15, 43, 92, 0.18);
             --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Symmetrical Type Scale */
+            --fs-hero-h1: 3.25rem;
+            --fs-h2: 2.35rem;
+            --fs-h3-sub: 1.8rem;
+            --fs-h3-card: 1.25rem;
+            --fs-h4: 1.05rem;
+            --fs-lead: 1.05rem;
+            --fs-body: 1rem;
+            --fs-card-body: 0.95rem;
+            --fs-small: 0.875rem;
+            --fs-micro: 0.825rem;
         }
 
         * {
@@ -142,12 +154,74 @@
             scroll-behavior: smooth;
         }
 
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             color: var(--text-dark);
             line-height: 1.6;
             background-color: var(--bg-white);
-            overflow-x: hidden;
-            font-size: 1rem;
+            font-size: var(--fs-body);
+        }
+
+        section, header, footer, .contact-box {
+            max-width: 100%;
+        }
+
+        section[id] {
+            scroll-margin-top: 88px;
+        }
+
+        .card, .stat-card, .contact-box, .contact-box > div, .split-grid > div {
+            min-width: 0;
+        }
+
+        .hero h1, .section-title h2, .subsection-heading, .card h3, .card p, h4, p {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        /* Symmetrical Heading Hierarchy */
+        .section-title h2 {
+            font-size: var(--fs-h2);
+            font-weight: 800;
+            color: var(--royal-blue-dark);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.7px;
+            line-height: 1.2;
+            display: inline-block;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .subsection-heading {
+            font-size: var(--fs-h3-sub);
+            font-weight: 800;
+            color: var(--royal-blue-dark);
+            text-align: center;
+            margin: 4.5rem 0 2.5rem 0;
+            letter-spacing: -0.5px;
+            line-height: 1.25;
+            transition: var(--transition-smooth);
+            display: block;
+        }
+
+        .card h3 {
+            color: var(--royal-blue-dark);
+            font-size: var(--fs-h3-card);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        h4 {
+            color: var(--royal-blue-dark);
+            font-size: var(--fs-h4);
+            font-weight: 700;
+            line-height: 1.35;
         }
 
         /* Primary Header Navigation */
@@ -160,6 +234,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -173,6 +248,7 @@
             gap: 0.85rem;
             text-decoration: none;
             cursor: pointer;
+            flex-shrink: 0;
             transition: var(--transition-smooth);
         }
 
@@ -198,18 +274,19 @@
         }
 
         .logo-title {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: var(--royal-blue-dark);
-            letter-spacing: -0.5px;
-            line-height: 1.1;
+            letter-spacing: -0.4px;
+            line-height: 1.15;
         }
 
         .logo-subtitle {
             color: var(--silver-grey-dark);
-            font-size: 0.78rem;
+            font-size: var(--fs-micro);
             font-weight: 600;
             letter-spacing: 0.2px;
+            line-height: 1.3;
         }
 
         nav {
@@ -222,7 +299,8 @@
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 0.92rem;
+            font-size: var(--fs-card-body);
+            line-height: 1.4;
             position: relative;
             padding: 0.25rem 0;
             transition: color 0.3s ease;
@@ -319,7 +397,8 @@
             color: var(--silver-grey-light);
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
-            font-size: 0.88rem;
+            font-size: var(--fs-small);
+            line-height: 1.5;
             font-weight: 600;
             margin-bottom: 2rem;
             animation: zoomOutEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -333,7 +412,7 @@
         }
 
         .hero h1 {
-            font-size: 3.35rem;
+            font-size: var(--fs-hero-h1);
             font-weight: 800;
             margin-bottom: 1.25rem;
             line-height: 1.15;
@@ -351,7 +430,8 @@
         }
 
         .hero-keywords {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
+            line-height: 1.45;
             font-weight: 700;
             margin-bottom: 1.75rem;
             color: var(--silver-grey-light);
@@ -377,7 +457,8 @@
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
+            line-height: 1.65;
             max-width: 820px;
             margin: 0 auto 2.75rem auto;
             color: #cbd5e1;
@@ -395,9 +476,11 @@
             display: inline-block;
             background: var(--royal-blue-bright);
             color: white;
-            padding: 0.95rem 2.5rem;
+            padding: 0.95rem 2.25rem;
             border-radius: 10px;
             text-decoration: none;
+            font-size: var(--fs-body);
+            line-height: 1.4;
             font-weight: 600;
             transition: var(--transition-smooth);
             box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
@@ -459,17 +542,6 @@
             margin: 0 auto 4rem auto;
         }
 
-        .section-title h2 {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--royal-blue-dark);
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.8px;
-            display: inline-block;
-            transition: var(--transition-smooth);
-            position: relative;
-        }
-
         .section-title h2:hover {
             transform: scale(1.03) translateY(-2px);
             color: var(--royal-blue-bright);
@@ -478,18 +550,19 @@
 
         .section-title p {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: var(--fs-lead);
+            line-height: 1.6;
         }
 
-        .subsection-heading {
-            font-size: 1.85rem;
-            font-weight: 800;
-            color: var(--royal-blue-dark);
-            text-align: center;
-            margin: 4.5rem 0 2.5rem 0;
-            letter-spacing: -0.5px;
-            transition: var(--transition-smooth);
-            display: block;
+        .about-copy {
+            color: var(--text-muted);
+            font-size: var(--fs-body);
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-copy:last-child {
+            margin-bottom: 0;
         }
 
         .subsection-heading:hover {
@@ -505,14 +578,51 @@
         .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 
         @media (max-width: 992px) {
+            :root {
+                --fs-hero-h1: 2.5rem;
+                --fs-h2: 2rem;
+                --fs-h3-sub: 1.6rem;
+            }
             .grid-3, .grid-4, .split-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero h1 { font-size: 2.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 640px) {
-            .grid-2, .grid-3, .grid-4, .split-grid { grid-template-columns: 1fr; }
-            header { flex-direction: column; gap: 1rem; }
-            nav { flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
-            .btn-outline { margin-left: 0; margin-top: 1rem; }
+            :root {
+                --fs-hero-h1: 2rem;
+                --fs-h2: 1.75rem;
+                --fs-h3-sub: 1.45rem;
+                --fs-h3-card: 1.15rem;
+                --fs-h4: 1rem;
+                --fs-lead: 1rem;
+                --fs-body: 0.95rem;
+                --fs-card-body: 0.925rem;
+            }
+            .grid-2, .grid-3, .grid-4, .split-grid, .stats-grid { grid-template-columns: 1fr; }
+            header {
+                position: static;
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0.75rem 4%;
+            }
+            .logo-img { height: 42px; }
+            .logo-title { font-size: 1.12rem; }
+            .logo-subtitle { font-size: var(--fs-micro); }
+            nav { flex-wrap: wrap; justify-content: center; gap: 0.5rem 0.75rem; }
+            nav a { font-size: var(--fs-small); }
+            .nav-cta { padding: 0.45rem 0.95rem; }
+            .hero { padding: 4rem 5% 4.5rem; }
+            .hero h1 { line-height: 1.2; }
+            .hero-keywords { font-size: var(--fs-lead); }
+            .hero p { font-size: var(--fs-body); }
+            .btn { padding: 0.8rem 1.5rem; font-size: var(--fs-card-body); }
+            .btn-outline { margin-left: 0; margin-top: 0.75rem; }
+            section { padding: 3.5rem 5%; }
+            .subsection-heading { margin: 2.5rem 0 1.5rem; }
+            .stat-card { padding: 1.5rem 1rem; }
+            .img-card { height: 240px; }
+            .contact-box { padding: 1.25rem; }
+            .contact-box > div:first-child { grid-template-columns: 1fr !important; }
+            .cookie-banner { flex-direction: column; gap: 0.75rem; text-align: center; }
         }
 
         /* Dynamic Cards */
@@ -571,21 +681,37 @@
             transform: scale(1.1);
         }
 
-        .card h3 {
-            color: var(--royal-blue-dark);
-            font-size: 1.28rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            transition: color 0.3s ease;
-        }
-
         .card:hover h3 {
             color: var(--royal-blue-bright);
         }
 
         .card p {
             color: var(--text-muted);
-            font-size: 0.98rem;
+            font-size: var(--fs-card-body);
+            line-height: 1.6;
+        }
+
+        .card-outcome {
+            margin-top: 0.85rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+            color: var(--royal-blue-dark) !important;
+            font-weight: 700;
+            font-size: var(--fs-small) !important;
+        }
+
+        .intel-item {
+            margin-bottom: 1rem;
+        }
+
+        .intel-item h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .intel-item p {
+            font-size: var(--fs-small);
+            line-height: 1.55;
+            color: var(--text-muted);
         }
 
         .img-card {
@@ -629,7 +755,8 @@
         }
 
         .stat-card .number {
-            font-size: 2.6rem;
+            font-size: 2.5rem;
+            line-height: 1.15;
             font-weight: 800;
             color: #60a5fa;
             margin-bottom: 0.5rem;
@@ -642,7 +769,8 @@
         }
 
         .stat-card .label {
-            font-size: 0.95rem;
+            font-size: var(--fs-card-body);
+            line-height: 1.5;
             color: var(--silver-grey-light);
         }
 
@@ -654,7 +782,8 @@
             border: 1px solid #bfdbfe;
             padding: 0.35rem 0.85rem;
             border-radius: 8px;
-            font-size: 0.85rem;
+            font-size: var(--fs-micro);
+            line-height: 1.35;
             font-weight: 600;
             transition: var(--transition-smooth);
         }
@@ -678,6 +807,7 @@
             color: var(--royal-blue-bright);
             border: 2px solid var(--royal-blue-bright);
             border-radius: 50%;
+            font-size: var(--fs-card-body);
             font-weight: 800;
             margin-bottom: 1.25rem;
             transition: var(--transition-smooth);
@@ -706,6 +836,100 @@
             box-shadow: var(--hover-shadow);
         }
 
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .partner-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            background: var(--bg-offwhite);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+
+        .partner-eyebrow {
+            font-size: var(--fs-micro);
+            line-height: 1.35;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--royal-blue-bright);
+        }
+
+        .partner-name {
+            margin: 0.2rem 0 0.4rem;
+        }
+
+        .partner-role {
+            color: var(--royal-blue);
+            font-size: var(--fs-small);
+            line-height: 1.45;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-bio {
+            color: var(--text-muted);
+            font-size: var(--fs-card-body);
+            line-height: 1.55;
+            margin-bottom: 0.65rem;
+        }
+
+        .partner-link {
+            color: var(--royal-blue);
+            font-weight: 700;
+            font-size: var(--fs-small);
+            line-height: 1.4;
+            text-decoration: none;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 700;
+            color: var(--royal-blue-dark);
+            font-size: var(--fs-small);
+            line-height: 1.4;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-size: var(--fs-card-body);
+            line-height: 1.45;
+            color: var(--text-dark);
+            background: var(--bg-white);
+        }
+
+        .btn-secondary-outline {
+            background: var(--bg-white) !important;
+            color: var(--royal-blue-dark) !important;
+            border: 2px solid var(--royal-blue-bright) !important;
+            box-shadow: none !important;
+            padding: 0.9rem 1.75rem !important;
+        }
+
+        .form-note {
+            margin-top: 0.65rem;
+            font-size: var(--fs-small);
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .form-note a {
+            color: var(--royal-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
         .contact-info {
             margin-top: 2rem;
             display: grid;
@@ -717,10 +941,42 @@
         }
 
         .contact-item h4 {
-            color: var(--royal-blue-dark);
-            font-size: 1.1rem;
-            font-weight: 700;
             margin-bottom: 0.35rem;
+        }
+
+        .contact-item p {
+            font-size: var(--fs-small);
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .contact-item a {
+            color: var(--royal-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .section-quick-links {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem 1.5rem;
+        }
+
+        .section-quick-links a {
+            text-decoration: none;
+            color: var(--royal-blue-dark);
+            font-weight: 600;
+            font-size: var(--fs-small);
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .section-quick-links a:hover {
+            color: var(--royal-blue-bright);
         }
 
         .linkedin-link {
@@ -761,7 +1017,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.85rem;
+            font-size: var(--fs-small);
+            line-height: 1.5;
             z-index: 2000;
             border-top: 1px solid rgba(255,255,255,0.15);
             box-shadow: 0 -4px 25px rgba(0,0,0,0.15);
@@ -774,6 +1031,7 @@
             padding: 0.55rem 1.5rem;
             border-radius: 6px;
             cursor: pointer;
+            font-size: var(--fs-small);
             font-weight: 600;
             transition: var(--transition-smooth);
         }
@@ -790,7 +1048,8 @@
             color: var(--silver-grey);
             padding: 4rem 6% 2rem;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: var(--fs-small);
+            line-height: 1.6;
         }
 
         footer p { margin-bottom: 0.5rem; }
@@ -877,13 +1136,13 @@
                 <div class="section-title" style="text-align: left; margin-bottom: 1.5rem;">
                     <h2>Trusted Advisors in Global Executive Search</h2>
                 </div>
-                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                <p class="about-copy">
                     At Aditya HR Consulting, we specialize in headhunting transformational leaders who shape industries and accelerate business growth.
                 </p>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                <p class="about-copy">
                     Our approach combines deep market intelligence, cross-border reach, and strict confidentiality to recruit senior executives across Technology, Luxury Hospitality & Retail, Real Estate, GCCs, and Core Engineering.
                 </p>
-                <p style="color: var(--text-muted);">
+                <p class="about-copy">
                     Partnering with boards, founders, and enterprise leadership across India, the Middle East (GCC), Europe, and APAC, we build leadership teams that drive innovation, operational excellence, and long-term value.
                 </p>
             </div>
@@ -1144,21 +1403,21 @@
                 <span class="badge" style="align-self: flex-start; margin-bottom: 1rem;">India GCC &amp; Technology</span>
                 <h3>VP of Engineering &amp; India Site Leader</h3>
                 <p>Partnered with a global FinTech enterprise establishing its India Global Capability Center (GCC) to appoint the founding engineering and site leadership team.</p>
-                <p style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--border); color: var(--royal-blue-dark); font-weight: 700; font-size: 0.9rem;">Outcome: Shortlist delivered in 18 days; founding India tech hub scaled to 25+ engineers.</p>
+                <p class="card-outcome">Outcome: Shortlist delivered in 18 days; founding India tech hub scaled to 25+ engineers.</p>
             </div>
 
             <div class="card">
                 <span class="badge" style="align-self: flex-start; margin-bottom: 1rem;">Middle East (GCC) Expansion</span>
                 <h3>Senior Development &amp; Design Leadership</h3>
                 <p>Executed a confidential cross-border search for a premier Real Estate &amp; Architectural organization scaling flagship projects across Saudi Arabia and the UAE.</p>
-                <p style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--border); color: var(--royal-blue-dark); font-weight: 700; font-size: 0.9rem;">Outcome: Cross-border shortlist in 21 days; leadership placed for multi-billion-dollar regional developments.</p>
+                <p class="card-outcome">Outcome: Cross-border shortlist in 21 days; leadership placed for multi-billion-dollar regional developments.</p>
             </div>
 
             <div class="card">
                 <span class="badge" style="align-self: flex-start; margin-bottom: 1rem;">Luxury Hospitality &amp; Retail</span>
                 <h3>Regional Operations &amp; Country Head</h3>
                 <p>Identified and appointed senior commercial and retail leadership for an international luxury brand expanding across key metropolitan hubs in India and the Gulf.</p>
-                <p style="margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--border); color: var(--royal-blue-dark); font-weight: 700; font-size: 0.9rem;">Outcome: Key commercial leader secured in 24 days to spearhead flagship boutique &amp; regional rollout.</p>
+                <p class="card-outcome">Outcome: Key commercial leader secured in 24 days to spearhead flagship boutique &amp; regional rollout.</p>
             </div>
         </div>
     </section>
@@ -1209,25 +1468,25 @@
             </div>
             <div>
                 <div class="section-title" style="text-align: left; margin-bottom: 2rem;">
-                    <h2 style="font-size: 2rem;">Leadership Intelligence</h2>
-                    <p style="font-size: 1rem;">Research-driven insights that power strategic leadership decisions.</p>
+                    <h2>Leadership Intelligence</h2>
+                    <p>Research-driven insights that power strategic leadership decisions.</p>
                 </div>
                 <div class="grid-2">
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="color: var(--royal-blue-dark); margin-bottom: 0.25rem;">Talent Mapping</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Map high-performing executives across competitors before critical hiring needs arise.</p>
+                    <div class="intel-item">
+                        <h4>Talent Mapping</h4>
+                        <p>Map high-performing executives across competitors before critical hiring needs arise.</p>
                     </div>
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="color: var(--royal-blue-dark); margin-bottom: 0.25rem;">Benchmarking</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Evaluate internal and external standards against broader industry performance metrics.</p>
+                    <div class="intel-item">
+                        <h4>Benchmarking</h4>
+                        <p>Evaluate internal and external standards against broader industry performance metrics.</p>
                     </div>
-                    <div>
-                        <h4 style="color: var(--royal-blue-dark); margin-bottom: 0.25rem;">Competitive Insights</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Gain clarity on organizational structures, executive movements, and compensation trends.</p>
+                    <div class="intel-item">
+                        <h4>Competitive Insights</h4>
+                        <p>Gain clarity on organizational structures, executive movements, and compensation trends.</p>
                     </div>
-                    <div>
-                        <h4 style="color: var(--royal-blue-dark); margin-bottom: 0.25rem;">Strategic Succession</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Ensure uninterrupted business continuity by identifying future leadership talent today.</p>
+                    <div class="intel-item">
+                        <h4>Strategic Succession</h4>
+                        <p>Ensure uninterrupted business continuity by identifying future leadership talent today.</p>
                     </div>
                 </div>
             </div>
@@ -1307,34 +1566,34 @@
         <div class="contact-box">
 
             <!-- Managing Partner & Leadership Authority Block -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+            <div class="partners-grid">
                 <!-- Vikass Singh -->
-                <div style="display: flex; align-items: flex-start; gap: 1.25rem; background: var(--bg-offwhite); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem;">
+                <div class="partner-card">
                     <img src="founder.jpg" alt="Vikass Singh - Founder &amp; Executive Search Partner" onerror="this.style.display='none'" style="width: 78px; height: 78px; border-radius: 50%; object-fit: cover; border: 3px solid var(--royal-blue-bright); flex-shrink: 0;">
                     <div style="flex: 1;">
-                        <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--royal-blue-bright);">Partner-Led Execution</span>
-                        <h3 style="color: var(--royal-blue-dark); font-size: 1.22rem; font-weight: 800; margin: 0.2rem 0 0.4rem;">Vikass Singh</h3>
-                        <p style="color: var(--royal-blue); font-size: 0.88rem; font-weight: 700; margin-bottom: 0.5rem;">Founder &amp; Executive Search Partner</p>
-                        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.65rem;">
+                        <span class="partner-eyebrow">Partner-Led Execution</span>
+                        <h3 class="partner-name">Vikass Singh</h3>
+                        <p class="partner-role">Founder &amp; Executive Search Partner</p>
+                        <p class="partner-bio">
                             With over 22 years of retained executive search and leadership advisory pedigree, Vikass leads confidential C-suite, board, and cross-border mandates across India, the Middle East (GCC), Europe, and APAC.
                         </p>
-                        <a href="https://www.linkedin.com/in/vikassingh6/" target="_blank" rel="noopener noreferrer" style="color: var(--royal-blue); font-weight: 700; font-size: 0.88rem; text-decoration: none;">
+                        <a href="https://www.linkedin.com/in/vikassingh6/" target="_blank" rel="noopener noreferrer" class="partner-link">
                             Connect with Vikass on LinkedIn &rarr;
                         </a>
                     </div>
                 </div>
 
                 <!-- Anoo Singh -->
-                <div style="display: flex; align-items: flex-start; gap: 1.25rem; background: var(--bg-offwhite); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem;">
+                <div class="partner-card">
                     <img src="anoo.jpg" alt="Anoo Singh - Executive Search &amp; Leadership Advisory" onerror="this.style.display='none'" style="width: 78px; height: 78px; border-radius: 50%; object-fit: cover; border: 3px solid var(--royal-blue-bright); flex-shrink: 0;">
                     <div style="flex: 1;">
-                        <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--royal-blue-bright);">Leadership &amp; Talent Advisory</span>
-                        <h3 style="color: var(--royal-blue-dark); font-size: 1.22rem; font-weight: 800; margin: 0.2rem 0 0.4rem;">Anoo Singh</h3>
-                        <p style="color: var(--royal-blue); font-size: 0.88rem; font-weight: 700; margin-bottom: 0.5rem;">Executive Search &amp; Leadership Partner</p>
-                        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.65rem;">
+                        <span class="partner-eyebrow">Leadership &amp; Talent Advisory</span>
+                        <h3 class="partner-name">Anoo Singh</h3>
+                        <p class="partner-role">Executive Search &amp; Leadership Partner</p>
+                        <p class="partner-bio">
                             Co-leading strategic leadership search, market mapping, and senior talent advisory engagements across high-growth enterprises, GCCs, and cross-border client mandates.
                         </p>
-                        <a href="https://www.linkedin.com/in/annusinghannu/" target="_blank" rel="noopener noreferrer" style="color: var(--royal-blue); font-weight: 700; font-size: 0.88rem; text-decoration: none;">
+                        <a href="https://www.linkedin.com/in/annusinghannu/" target="_blank" rel="noopener noreferrer" class="partner-link">
                             Connect with Anoo on LinkedIn &rarr;
                         </a>
                     </div>
@@ -1350,20 +1609,20 @@
             <form action="https://formspree.io/f/mdekrnzd" method="POST" style="max-width: 780px; margin: 0 auto 2rem auto;">
                 <div class="grid-2" style="gap: 1.25rem; margin-bottom: 1.25rem;">
                     <div>
-                        <label for="fullName" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Your Name <span style="color: #dc2626;">*</span></label>
-                        <input type="text" id="fullName" name="fullName" placeholder="e.g., Arjun Mehta" required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem;">
+                        <label for="fullName" class="form-label">Your Name <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="fullName" name="fullName" placeholder="e.g., Arjun Mehta" required class="form-control">
                     </div>
                     <div>
-                        <label for="email" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Work Email <span style="color: #dc2626;">*</span></label>
-                        <input type="email" id="email" name="_replyto" placeholder="name@company.com" required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem;">
+                        <label for="email" class="form-label">Work Email <span style="color: #dc2626;">*</span></label>
+                        <input type="email" id="email" name="_replyto" placeholder="name@company.com" required class="form-control">
                     </div>
                     <div>
-                        <label for="company" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Organization &amp; Role to Hire <span style="color: #dc2626;">*</span></label>
-                        <input type="text" id="company" name="company_and_role" placeholder="e.g., FinTech GCC — VP Engineering" required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem;">
+                        <label for="company" class="form-label">Organization &amp; Role to Hire <span style="color: #dc2626;">*</span></label>
+                        <input type="text" id="company" name="company_and_role" placeholder="e.g., FinTech GCC — VP Engineering" required class="form-control">
                     </div>
                     <div>
-                        <label for="region" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Target Corridor / Inquiry Type <span style="color: #dc2626;">*</span></label>
-                        <select id="region" name="corridor_and_type" required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem; background: var(--bg-white); color: var(--text-dark);">
+                        <label for="region" class="form-label">Target Corridor / Inquiry Type <span style="color: #dc2626;">*</span></label>
+                        <select id="region" name="corridor_and_type" required class="form-control">
                             <option value="India Leadership / GCC Mandate">India Leadership / GCC Setup Mandate</option>
                             <option value="Middle East (Saudi Arabia / UAE / GCC)">Middle East (Saudi Arabia / UAE / GCC)</option>
                             <option value="Europe Cross-Border Mandate">Europe Cross-Border Mandate</option>
@@ -1374,20 +1633,20 @@
                 </div>
 
                 <div style="margin-bottom: 1.5rem;">
-                    <label for="message" style="display: block; font-weight: 700; color: var(--royal-blue-dark); font-size: 0.92rem; margin-bottom: 0.4rem;">Mandate Brief &amp; Timeline <span style="color: #dc2626;">*</span></label>
-                    <textarea id="message" name="message" rows="4" placeholder="Briefly outline the leadership mandate, key competencies, or target market..." required style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.95rem; resize: vertical;"></textarea>
+                    <label for="message" class="form-label">Mandate Brief &amp; Timeline <span style="color: #dc2626;">*</span></label>
+                    <textarea id="message" name="message" rows="4" placeholder="Briefly outline the leadership mandate, key competencies, or target market..." required class="form-control" style="resize: vertical;"></textarea>
                 </div>
 
                 <div style="text-align: center;">
                     <div style="display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; align-items: center;">
-                        <button type="submit" class="btn" style="border: none; cursor: pointer; padding: 0.95rem 2.25rem; font-size: 1rem;">Request a Confidential Mandate Consultation</button>
-                        <a href="https://calendly.com/adityaconsulting-info/30min" target="_blank" rel="noopener noreferrer" class="btn" style="background: var(--bg-white); color: var(--royal-blue-dark); border: 2px solid var(--royal-blue-bright); box-shadow: none; padding: 0.9rem 1.75rem; font-size: 0.95rem;">Book a 15-Minute Confidential Briefing</a>
+                        <button type="submit" class="btn" style="border: none; cursor: pointer;">Request a Confidential Mandate Consultation</button>
+                        <a href="https://calendly.com/adityaconsulting-info/30min" target="_blank" rel="noopener noreferrer" class="btn btn-secondary-outline">Book a 15-Minute Confidential Briefing</a>
                     </div>
-                    <p style="margin-top: 0.65rem; font-size: 0.84rem; color: var(--text-muted);">
-                        Prefer a direct call? <a href="https://calendly.com/adityaconsulting-info/30min" target="_blank" rel="noopener noreferrer" style="color: var(--royal-blue); font-weight: 600; text-decoration: none;">Schedule via Calendly</a>
+                    <p class="form-note">
+                        Prefer a direct call? <a href="https://calendly.com/adityaconsulting-info/30min" target="_blank" rel="noopener noreferrer">Schedule via Calendly</a>
                     </p>
-                    <p style="margin-top: 0.65rem; font-size: 0.85rem; color: var(--text-muted);">
-                        Senior executive exploring leadership opportunities? <a href="jobs.html" style="color: var(--royal-blue); font-weight: 600; text-decoration: none;">View open mandates &amp; submit your profile here &rarr;</a>
+                    <p class="form-note">
+                        Senior executive exploring leadership opportunities? <a href="jobs.html">View open mandates &amp; submit your profile here &rarr;</a>
                     </p>
                 </div>
             </form>
@@ -1395,13 +1654,9 @@
             <!-- Direct Contact Info Footer -->
             <div class="contact-info">
                 <div class="contact-item">
-                    <h4>Global Footprint</h4>
-                    <p style="color: var(--text-muted);">India | Middle East (GCC) | Europe | APAC</p>
-                </div>
-                <div class="contact-item">
                     <h4>Email Us</h4>
-                    <p style="font-size: 0.95rem; margin-top: 0.35rem;">
-                        <a href="mailto:info@adityaconsulting.net" style="color: var(--royal-blue); text-decoration: none; font-weight: 600;">info@adityaconsulting.net</a>
+                    <p style="margin-top: 0.35rem;">
+                        <a href="mailto:info@adityaconsulting.net">info@adityaconsulting.net</a>
                     </p>
                 </div>
                 <div class="contact-item">
@@ -1414,10 +1669,16 @@
                         </a>
                     </p>
                 </div>
-                <div class="contact-item">
-                    <h4>Business Hours</h4>
-                    <p style="color: var(--text-muted);">Mon – Fri: 11:00 am – 10:00 pm IST</p>
-                </div>
+            </div>
+
+            <!-- Quick Section Jump Links -->
+            <div class="section-quick-links" aria-label="Section navigation">
+                <a href="#about">About</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#industries">Industries</a>
+                <a href="#process">Process</a>
+                <a href="#markets">Corridors</a>
+                <a href="jobs.html">Jobs</a>
             </div>
         </div>
     </section>
